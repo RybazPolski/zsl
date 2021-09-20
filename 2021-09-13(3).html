@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasło</title>
+</head>
+<body>
+        Hasło: <input id="pwd" type="password" onkeyup="check()">
+        <p id="sila">
+
+        </p>
+
+        <script>
+            var pwd
+
+            function check() {
+                pwd = document.getElementById('pwd').value
+                console.log(pwd)
+                if(length(pwd)>5){}
+            }
+        </script>
+
+</body>
+</html>

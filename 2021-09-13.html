@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powtórka JS</title>
+</head>
+<body>
+    <script>
+
+        function cl(x){
+            console.log(x)
+        }
+
+        var r = prompt('Podaj promień koła', 0);
+        var obwod = 2*Math.PI*r
+        console.log('Obwód: '+obwod)
+        var pole = Math.PI*Math.pow(r,2)
+        console.log('Pole: '+pole)
+
+        var cena = prompt('Podaj cenę paliwa za litr: ', 0);
+        var koszt = cena*(8/100)*360
+        cl(koszt)
+
+        var x = parseFloat(prompt('Podaj liczbę: ',0))
+        cl('Liczba przeciwna to: '+x*-1)
+        var suma = x+15
+        cl(x+'+15='+suma)
+
+        cl('Reszta z dzielenia przez 2: '+x%2)
+
+        cl(Math.floor(x/3))
+
+        if(x%2==0){
+            console.log('x jest parzyste')
+        }else{
+            console.log('x nie jest parzyste')
+        }
+
+        if(x>0){
+            cl('Liczba jest dodatnia')
+        }else{
+            if(x<0){
+                cl('Liczba jest ujemna');
+            }else{
+                cl('Liczba jest równa 0')
+            }
+        }
+
+        var a = prompt('podaj pierwszą liczbę:',0)
+        var b = prompt('podaj drugą liczbę:',0)
+        var c = prompt('podaj trzecią liczbę:',0)
+
+        if(a>b&a>c){
+            cl('liczba '+a+' jest większa')
+        }else{
+            if(b>a&b>c){
+                cl('liczba '+b+' jest większa')
+            }else{
+                cl('liczba '+c+' jest większa')
+            }
+        }
+
+        if(a>b&a>c){
+            if(b>c){
+                cl(c+', '+b+', '+a)
+            }else{
+                cl(b+', '+c+', '+a)
+            }
+        }else{
+            if(b>a&b>c){
+                if(a>c){
+                cl(c+', '+a+', '+b)
+            }else{
+                cl(a+', '+c+', '+b)
+            }   
+            }else{
+                if(a>b){
+                cl(b+', '+a+', '+c)
+            }else{
+                cl(a+', '+b+', '+c)
+            }
+            }
+        }
+
+    </script>
+</body>
+</html>
