@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pętle</title>
+</head>
+<body>
+    <script>
+
+        // zadania 4, 7, 8, 14 ze strony
+        // https://technikprogramista.pl/kurs/javascript/lekcja/javascript-petle-zadania/
+
+
+        var suma = 0
+        for(var i = 10; i>0;i--){
+            suma = suma + Math.pow(i,2)
+        }
+        document.write("liczba cegieł: "+suma)
+        document.write("<br>")
+
+
+
+        for(var i = 1; i<=10; i++){
+            console.log(i*2)
+        }
+
+
+
+        suma = 0
+        var x = 5
+        for(var i = 1; i<=100; i++, x+=10){
+            suma+=x
+            console.log(x)
+        }
+        document.write("Suma ciągu: "+suma)
+        document.write("<br>")
+
+        
+        
+        
+        var sil = Math.round(prompt("Podaj liczbę do silni:"))
+        var wynik = 1
+        while(sil>0){
+            wynik = wynik*sil
+            sil--
+        }
+        document.write('silnia: '+wynik)
+        
+
+
+    </script>
+</body>
+</html>
