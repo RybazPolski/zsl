@@ -2,9 +2,9 @@
 using namespace std;
 
 // deklaracja struktury
-struct DataBirthday{
+struct DateBirthday{
     // deklaracja pól struktury
-    unsigned short int dd, mm, rrrr;
+    unsigned short int dd, mm, yyyy;
 };
 
 
@@ -13,15 +13,26 @@ class Student{
     public:
         int id {};
         string name {}, surname {};
-        DataBirthday dataBirthday {};
+        DateBirthday dateBirthday {};
         void showAllData();
-
+        void setData(int id, string name, string surname, DateBirthday dateBirthday);
+        void showBirthday(){
+            cout << "\nData urodzenia: " << Student::dateBirthday.dd << "-" << Student::dateBirthday.mm << "-" << Student::dateBirthday.yyyy;
+        }
 };
 
 void Student::showAllData(){
-    cout << "ID: " << id << "\nImie i nazwisko: " << name << " " << surname;
-    
+    cout << "ID: " << id << "\nImie i nazwisko: " << name << " " << surname;  
 };
+
+void Student::setData(int id, string name, string surname, DateBirthday dateBirthday){
+    Student::id=id;
+    Student::name=name;
+    Student::surname=surname;
+    Student::dateBirthday=dateBirthday;
+};
+
+
 
 
 int main(int argc, char** argv){
@@ -29,15 +40,8 @@ int main(int argc, char** argv){
 
     Student uczen;
 
-    cout << "Podaj datę urodzenia:\n";
-    cout << "Dzień: ";
-    cin >> uczen.dataBirthday.dd;
-    cout << "Miesiąc: ";
-    cin >> uczen.dataBirthday.mm;
-    cout << "Rok: ";
-    cin >> uczen.dataBirthday.rrrr;
-
+    uczen.setData(5, "Jan", "Kowalski", {01, 01, 2000});
     uczen.showAllData();
-    cout << "\n\nData urodzenia: " << uczen.dataBirthday.dd << "-" << uczen.dataBirthday.mm << "-" << uczen.dataBirthday.rrrr;
+    uczen.showBirthday();
     return 0;
 };
