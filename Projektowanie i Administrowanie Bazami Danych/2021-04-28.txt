@@ -1,0 +1,1 @@
+SELECT `imie`,`nazwisko`,`pesel` FROM `UczelniaA` UNION ALL SELECT `imie`,`nazwisko`,`pesel` FROM `UczelniaB` 

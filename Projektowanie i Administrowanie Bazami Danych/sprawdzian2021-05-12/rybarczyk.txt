@@ -1,0 +1,65 @@
+............................................czesc1.............................................
+Zad1 [utworzenie pliku]
+
+
+
+Zad2 CREATE DATABASE `sklep_Rybarczyk`
+
+
+
+Zad3 
+CREATE TABLE `produkty` (
+    `ID_produktu` int PRIMARY KEY,
+    `Nazwa_produktu` varchar(50) NOT NULL,
+    `Grupa_towarowa` int NOT NULL,
+    `Producent` varchar(16) NOT NULL,
+    `Cena_brutto` float NOT NULL
+);
+ALTER TABLE `produkty` CHANGE `Cena_brutto` `Cena_brutto` varchar(16) NOT NULL; 
+
+CREATE TABLE `klienci` (
+    `ID_klienta` char(5) PRIMARY KEY,
+    `imie` varchar(50) NOT NULL,
+    `nazwisko` varchar(100) NOT NULL
+);
+
+CREATE TABLE `zamowienia` (
+    `ID_zamowienia` int PRIMARY KEY,
+    `Data` date NOT NULL,
+    `ID_produktu` int NOT NULL,
+    `ID_klienta` char(5) NOT NULL,
+    `Liczba_sztuk` int NOT NULL
+);
+ALTER TABLE `zamowienia` CHANGE `ID_zamowienia` `ID_zamowienia` varchar(11) NOT NULL; 
+
+
+Zad4
+ALTER TABLE `zamowienia` ADD FOREIGN KEY (`ID_klienta`) REFERENCES `klienci` (`ID_klienta`); 
+
+ALTER TABLE `zamowienia` ADD FOREIGN KEY (`ID_produktu`) REFERENCES `produkty` (`ID_produktu`)
+
+
+
+............................................czesc2.............................................
+zad1
+SELECT `klienci`.`imie`, `klienci`.`nazwisko`, `produkty`.`Grupa_towarowa`, `produkty`.`Producent` FROM `zamowienia` INNER JOIN `klienci` ON `zamowienia`.`ID_klienta`=`klienci`.`ID_klienta` INNER JOIN `produkty` ON `zamowienia`.`ID_produktu`=`produkty`.`ID_produktu` GROUP BY `klienci`.`ID_klienta` HAVING `produkty`.`Grupa_towarowa` LIKE "Notebooki" && `produkty`.`Producent` LIKE "HW"  ORDER BY `klienci`.`nazwisko`
+
+
+zad2
+SELECT `klienci`.`imie`, `klienci`.`nazwisko`, `produkty`.`Nazwa_produktu`, `produkty`.`Grupa_towarowa`, `produkty`.`Producent` FROM `zamowienia` 
+INNER JOIN `klienci` ON `zamowienia`.`ID_klienta`=`klienci`.`ID_klienta` 
+INNER JOIN `produkty` ON `zamowienia`.`ID_produktu`=`produkty`.`ID_produktu` 
+GROUP BY `klienci`.`ID_klienta` 
+HAVING `klienci`.`imie` LIKE "Anna" && `klienci`.`nazwisko` LIKE "Kotnicka" 
+
+
+zad3
+SELECT `klienci`.`imie`, `klienci`.`nazwisko`, COUNT(`zamowienia`.`ID_zamowienia`) FROM `zamowienia` 
+INNER JOIN `klienci` ON `zamowienia`.`ID_klienta`=`klienci`.`ID_klienta` 
+GROUP BY `klienci`.`ID_klienta` ORDER BY COUNT(`zamowienia`.`ID_zamowienia`) DESC LIMIT 1
+
+
+zad4
+SELECT COUNT(`zamowienia`.`ID_zamowienia`) FROM `zamowienia`  
+INNER JOIN `produkty` ON `zamowienia`.`ID_produktu`=`produkty`.`ID_produktu` 
+WHERE `zamowienia`.`Data` LIKE "2013-03%"

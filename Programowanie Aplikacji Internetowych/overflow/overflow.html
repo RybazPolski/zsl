@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <script>
+        var zoomed = false
+        function zoom(){
+            if(zoomed==false){
+                zoomed=true
+                document.getElementById("zoomable").style.width = "1280px"
+            }else{
+                zoomed=false
+                document.getElementById("zoomable").style.width = "640px"
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div style="border: 5px solid green; height: 113px; width: 259px; overflow: visible;">
+        <img src="./overflow/kasa_cie_nie_zmieni_20732.jpg">
+    </div>
+    <br>
+    <div style="border: 5px solid blue; height: 113px; width: 259px; overflow: scroll;">
+        <img src="./overflow/explorer.gif">
+    </div>
+    <br>
+    <div style="border: 5px solid red; height: 364px; width: 640px; overflow: auto;">
+        <img src="./overflow/maxresdefault.jpg" style="width: 640px; transition-duration: 2s;" id="zoomable">
+    </div>
+    <button style="color: red;" onclick="zoom()">Zwiększ</button>
+    <br>
+    <div style="border: 5px solid gold; height: 113px; width: 259px; overflow: hidden;">
+        <img src="./overflow/istockphoto-1039532442-612x612.jpg">
+    </div>
+</body>
+</html>

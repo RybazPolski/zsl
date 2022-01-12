@@ -1,0 +1,1 @@
+w tabelach zamowienia i produkty dodałem później polecenia ALTER, co można zobaczyć w pliku rybarczyk.txt

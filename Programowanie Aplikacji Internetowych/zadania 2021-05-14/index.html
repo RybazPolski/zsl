@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablice JS</title>
+</head>
+<body>
+    <script>
+        // Zadanie A
+        var tab1 = [7, 3, 1, 6, 9, 5, 4, 10, 2, 2];
+        document.write(tab1[4]);
+        tab1[6] = 12
+        
+        
+        
+        document.write("<br>")
+
+        // Zadanie B
+        var tab2 = new Array;
+        tab2.length = tab1.length;
+        tab2 = tab1;
+        
+
+
+        document.write("<br>")
+        
+
+
+        // Zadanie C
+        var tab3 = new Array
+        for(i=0; i<parseInt(tab1.length); i++){
+            tab3[i] = parseInt(tab1[i])+parseInt(tab2[i])
+        }
+
+
+
+        document.write("<br>")
+        
+        // Zadanie D
+        for(i=0; i<tab1.length; i++){
+            tab2[i] = tab1[tab1.length-1-i]
+        }
+
+
+
+        document.write("<br>")
+        
+        // Ćwiczenie Interaktywne 1
+        var tablica = ['Jeden', 'Dwa', 'Trzy'];
+        document.write(tablica[2]+"<br/>");
+
+
+
+        document.write("<br>")
+
+        // Ćwiczenie Interaktywne 2
+        var tablica = new Array;
+        var a;
+        for(i=0;i<30;i++){
+        a = Math.random();
+        a *= 90;
+        a += 10;
+        a = Math.round(a);
+        tablica[i] = a;
+        };
+        document.write(tablica);
+
+
+        
+        document.write("<br>")
+        
+        // Ćwiczenie Interaktywne 3       
+        for(i=0, min=1000; i<parseInt(tablica.length); i++){
+            if(tablica[i]<min){
+                min = tablica[i];
+            };
+        };
+        
+    </script>
+</body>
+</html>
