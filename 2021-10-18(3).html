@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+        <input type="radio" name="size" value="100">100<br>
+        <input type="radio" name="size" value="200">200<br>
+        <input type="radio" name="size" value="500">500<br>
+
+    <div></div>
+
+
+    <script>
+        
+        var div = document.querySelector("div")
+        var inputs = document.querySelectorAll("input")
+        
+        for(const radio of inputs){
+            radio.addEventListener('click', function(){
+                // var size = document.querySelector('input[name="size"]:checked').value;
+                // div.innerHTML="Wybrałem: "+size.value
+                div.innerHTML="Wybrałem: "+radio.value
+            })
+        }
+
+    </script>
+
+
+</body>
+</html>

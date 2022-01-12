@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <select id="szczyty">
+        <option value="..." disabled=disabled selected=selected>Wybierz łańcuch górski</option>
+        <option value="Wysoka Kopa - 1126 m">Góry Izerskie</option>
+        <option value="Śnieżka - 1602 m">Karkonosze</option>
+        <option value="Kozi  - 2291 m">Tatry</option>
+    </select>
+
+    <div id="opis"></div>
+    <img id="photo">
+
+    <script>
+        
+        var opis = document.querySelector("#opis")
+        var szczyt = document.querySelector("#szczyty");
+        var photo = document.querySelector("#photo")
+
+        szczyt.addEventListener('click', function(){
+            opis.innerHTML = "Najwyższy szczyt: "+szczyt.value
+            switch(szczyt.value){
+                case "Śnieżka - 1602 m":
+                    photo.src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Karkonosze_panorama.jpg/1000px-Karkonosze_panorama.jpg";
+                    break;
+                case "Wysoka Kopa - 1126 m":
+                    photo.src="https://upload.wikimedia.org/wikipedia/commons/2/25/Gory_Izerskie-Smrek_i_Stog_Izerski.jpg";
+                    break;
+                case "Kozi  - 2291 m":
+                    photo.src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Tatry_Wysokie_1-T9.jpg";
+                    break;
+            }
+        })
+
+    </script>
+
+
+</body>
+</html>
