@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suwaki</title>
+    <style>
+        input{
+            -webkit-appearance: none;
+            border-radius: 10px;
+            height: 10px;
+            border-width: 1px;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <input style="border-color: rgb(255,0,0); background-color: pink;" type="range" value=0 min="0" max="255" id="r"><span id="resR">0</span><br>
+    <input style="border-color: rgb(0,255, 0); background-color: lightgreen;" type="range" value=0 min="0" max="255" id="g"><span id="resG">0</span><br>
+    <input style="border-color: rgb(0,0,255); background: lightblue;" type="range" value=0 min="0" max="255" id="b"><span id="resB">0</span><br>
+
+    <script>
+        var suwaki = document.querySelectorAll("input")
+
+        
+        for(const element of suwaki){
+            element.addEventListener("change",function(){
+
+                var r = document.getElementById("r").value
+                var g = document.getElementById("g").value
+                var b = document.getElementById("b").value
+                document.getElementById("resR").innerHTML = r
+                document.getElementById("resG").innerHTML = g
+                document.getElementById("resB").innerHTML = b
+
+
+                document.body.style.backgroundColor = "rgb("+r+","+g+","+b+")";
+                console.log("rgb("+r+","+g+","+b+")")
+            })
+        }
+    </script>
+
+</body>
+</html>

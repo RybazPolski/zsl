@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Łańcuchy</title>
+</head>
+<body>
+    
+    <div id="informacja"></div>
+    <div id="dane"></div>
+
+    <script>
+
+        var cl = function(text){
+            console.log(text)
+        }
+
+        var aksjomat = "Nazwać programistę informatykiem, to jak nazwać lekarza znachorem.";
+        
+        // 1
+        cl("Długość ciągu znaków: "+aksjomat.length)
+        
+        // 2
+        cl(aksjomat+" Nieprawdaż?");
+        
+        // 3
+        cl(aksjomat.charAt(2))
+        
+        // 4
+        cl(aksjomat.charAt(aksjomat.length-6))
+
+        // 5
+        cl(aksjomat.charCodeAt(2))
+        
+        // 6
+        cl(aksjomat.toUpperCase())
+
+        // 7
+        cl(aksjomat.indexOf("program"))
+
+        // 8
+        cl(aksjomat.substr(7,11))
+
+        // 9
+        cl(aksjomat.substr(7,41-7))
+        cl(aksjomat.substr(7,aksjomat.length-41))
+
+        // 10
+        cl(aksjomat.slice(aksjomat.length-10))
+
+        // 11
+        cl(aksjomat.replace("programistę","webmastera"))
+
+        // 12
+        cl(encodeURI(aksjomat.toLowerCase()))
+
+
+        var info = document.getElementById("informacja")
+        var dane = document.getElementById("dane")
+
+        
+        // 13
+        function z13(){
+        var tekst = "JavaScript (w skrócie JS)"
+            info.innerHTML = tekst
+            dane.innerHTML = tekst.length + " znaków"
+        }
+
+        // 14
+        function z14(){
+            var tekst = "JavaScript (w skrócie JS)"
+            info.innerHTML = tekst
+            dane.innerHTML = tekst.substr(22,2)
+        }
+
+        // 15
+        function z15(){
+            var tekst = "JavaScript (w skrócie JS)"
+            info.innerHTML = tekst
+            dane.innerHTML = tekst.slice(11,25)
+        }
+
+        // 16
+        function z16(){
+            var tekst = "JavaScript (w skrócie JS)"
+            info.innerHTML = tekst
+            dane.innerHTML = tekst.slice(11)
+        }
+
+        // 17
+        function z17(){
+            var tekst = "JavaScript (w skrócie JS)"
+            info.innerHTML = tekst
+            dane.innerHTML = tekst.replace("(w skrócie JS)","to w skrócie JS")
+        }
+
+        // 18
+        function z18(){
+            var tekst = "JavaScript (w skrócie JS)"
+            info.innerHTML = tekst
+            dane.innerHTML = tekst.split(" ")
+        }
+
+        // 19
+        function z19(){
+            var tekst = "JavaScript (w skrócie JS)"
+            info.innerHTML = tekst
+            dane.innerHTML = tekst.toUpperCase()
+        }
+
+        // 20
+        function z20(){
+            var tekst = "JavaScript (w skrócie JS)"
+            info.innerHTML = tekst
+            dane.innerHTML = tekst.toLowerCase()
+        }
+
+        // 21
+        function z21(){
+            var tekst = "JavaScript (w skrócie JS)"
+            info.innerHTML = tekst
+            dane.innerHTML = "Ostatnia spacja to znak nr.: "+tekst.lastIndexOf(" ")
+        }
+
+    </script>
+
+</body>
+</html>

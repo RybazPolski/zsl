@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprawdź swoje hasło</title>
+    <link rel="icon" href="./Haslo.png">
+</head>
+
+<body>
+    <input type="password" id="pwd"><button onclick="checkPwdStrenght()">Sprawdź!</button>
+    <div id="res"></div>
+
+    <script>
+        function includesNumber(str) {
+            return str.search("[0-9]")
+        }
+
+        function checkPwdStrenght() {
+            const pwd = document.getElementById("pwd").value
+            if (pwd.length == 0) {
+                document.getElementById("res").innerHTML = "<span style='color: red;'>WPISZ HASŁO!</span>"
+            } else if (pwd.length <= 6 && pwd.length >= 4 && includesNumber(pwd) >= 0) {
+                document.getElementById("res").innerHTML = "<span style='color: blue;'>ŚREDNIE</span>"
+            } else if (pwd.length >= 7 && includesNumber(pwd) >= 0) {
+                document.getElementById("res").innerHTML = "<span style='color: green;'>SILNE</span>"
+            } else {
+                document.getElementById("res").innerHTML = "<span style='color: yellow;'>SŁABE</span>"
+            }
+        }
+    </script>
+</body>
+
+</html>

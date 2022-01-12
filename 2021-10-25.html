@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulamin</title>
+    <style>
+        #warn{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rejestracja</h1>
+    <input type="checkbox" id="accept" value="1"> Zapoznałem(am) się z regulaminem<br>
+    <span id="warn"></span><br><br>
+    <button onclick="register()">Zarejestruj się</button>
+
+    <script>
+        function register(){
+            var checkbox = document.querySelector('#accept')
+            if(checkbox.checked==false){
+                document.querySelector('#warn').innerHTML = "Zapoznaj się najpierw z regulaminem!"
+            }else{
+                document.write("<h1 style=color:green;>Zarejestrowano!</h1>")
+            }
+        }
+    </script>
+
+</body>
+</html>

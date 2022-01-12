@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <select id="szczyty">
+        <option value="..." disabled=disabled selected=selected>Wybierz łańcuch górski</option>
+        <option value="Wysoka Kopa - 1126 m">Góry Izerskie</option>
+        <option value="Śnieżka - 1602 m">Karkonosze</option>
+        <option value="Kozi  - 2291 m">Tatry</option>
+    </select>
+
+    <div id="opis"></div>
+
+
+    <script>
+        
+        var opis = document.querySelector("#opis")
+        var szczyt = document.querySelector("#szczyty");
+
+
+        szczyt.addEventListener('click', function(){
+            opis.innerHTML = "Najwyższy szczyt: "+szczyt.value
+        })
+
+    </script>
+
+
+</body>
+</html>

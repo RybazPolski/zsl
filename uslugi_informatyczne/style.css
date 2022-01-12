@@ -1,0 +1,51 @@
+body{
+    background-color: #EEEEEE;
+}
+#kontener{
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+#logo, #menu, #footer{
+    background-color: #C0C0C0;
+    height: 100px;
+    padding: 10px 0;
+}
+#logo{
+    width: 400px;
+    float: left;
+}
+#menu{
+    width: 600px;
+    float: left;
+}
+#baner{
+    background-color: #DDDDDD;
+    height: 200px;
+    clear: both;
+}
+#main{
+    margin: 50px;
+}
+#footer{
+    text-align: right;
+}
+#menu > a{
+    color: #555555;
+    margin: 50px;
+    font-size: 200%;
+    text-decoration: none;
+    
+}
+hr{
+    background-color: #c0c0c0;
+    width: 70%;
+    height: 2px;
+}
+table{
+    text-align: left;
+}
+/* #menuDiv{
+    display: inline-block;
+    margin: 0 50px;
+} */
