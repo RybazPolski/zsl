@@ -1,0 +1,11 @@
+input[type=submit]{
+    -webkit-appearance: none;
+}
+input[type=submit]:hover {
+    background-color: lime;
+    transition-duration: 1s;
+    border-style: solid;
+}
+select{
+    border-style: double;
+}

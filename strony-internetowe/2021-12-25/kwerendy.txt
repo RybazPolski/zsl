@@ -1,0 +1,4 @@
+SELECT `imie`,`nazwisko` FROM `uczen`;
+SELECT `imie`,`nazwisko` FROM `uczen` WHERE `id`=2;
+SELECT `ocena` FROM `ocena` WHERE `id`=2;
+SELECT AVG(`ocena`) FROM `ocena` WHERE `uczen_id`=2 AND `przedmiot_id`=1;

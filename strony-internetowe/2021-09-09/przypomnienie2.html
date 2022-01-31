@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przypomnienie2</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table, th, td{
+            border-width: 2px;
+            border-style: dashed;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 32px;
+            background-color: burlywood;
+            
+        }
+        table{
+            height: 250px;
+            width: 400px;
+            border-spacing: 0px;
+            margin: auto;
+        }
+        td:hover, th:hover{
+            background-color: bisque;
+            transition: 0.8s;
+            rotate: 370deg;
+        }
+        .square{
+            list-style-type: square;
+        }
+        .alpha{
+            list-style-type: upper-alpha;
+        }
+    </style>
+</head>
+<body>
+    <ol class="alpha">
+        <li>jak Aligator</li>
+        <li>jak Biuro</li>
+        <li>jak Cukinia</li>
+    </ol>
+
+    <table>
+        <tr>
+            <th colspan="3">Tekst</th>
+        </tr>
+        <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td rowspan="2">d</td>
+        </tr>
+        <tr>
+            <td>c</td>
+        </tr>
+
+    </table>
+
+    <ul class="square">
+        <li>1</li>
+        <li>7</li>
+        <li>5</li>
+    </ul>
+
+    <a href="przypomnienie2.html">Powrót</a>
+
+    <div style="margin: auto; height: 500px; width: 500px;">
+        <div style="height: 500px; width: 100px; float: left; background-color: darkkhaki;">blok lewy</div>
+        <div style="height: 500px; width: 400px; float: left; background-color: darkcyan;">blok prawy</div>
+    </div>
+
+</body>
+</html>

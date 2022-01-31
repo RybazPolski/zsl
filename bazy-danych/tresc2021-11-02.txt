@@ -1,0 +1,101 @@
+
+
+1. Utworzyæ tabele zgodnie z modelem przedstawionym na diagramie w pliku Diagram.JPG
+(Proszê zastosowaæ nazwy kolumn identyczne jak w poleceniach poni¿ej)
+Uwaga ! Klucze obce dodajemy komend¹ ALTER TABLE ale dopiero po wprowadzeniu wszystkich danych do tabel!
+
+2. Wprowadziæ dane do tabel:  Laptop, PR, Printer 
+korzystaj¹c z gotowych instrukcji:
+
+INSERT INTO `laptop` (`code`, `model`, `speed`, `ram`, `hd`, `price`, `screen`) VALUES 
+(1, "TOS1", 500, 128, 5, NULL, 13),
+(2, "TOS2", 750, 256, 10, 800.0, 13),
+(3, "TOS3", 300, 256, 3, 900.0, 14),
+(4, "LEN1L", 200, 64, 15, 700.0, 12),
+(5, "LEN2L", 800, 64, 5, 500.0, 15),
+(6, "HP1L", 800, 128, 8, 1000.0, 17),
+(7, "HP2L", 500, 64, 10, 800.0, 13),
+(8, "SAM1L", 600, 196, 10, 700.0, 12),
+(9, "SAM2L", 600, 128, 8, 500.0, 15),
+(10, "AS1L", 400, 128, 8, 600.0, 15),
+(11, "AS2L", 200, 64, 5, 300.0, 12);
+
+INSERT INTO `pc` (`price`, `speed`, `hd`, `ram`, `cd`, `model`, `code`) VALUES
+(600.0,	500, 5,	64, "12x", "HP1", 1),
+(850.0,	750, 14, 128, "40x", "HP2", 2),
+(600.0,	500, 5,	64, "12x", "HP3", 3),
+(850.0,	600, 14, 128, "40x", "IBM1", 4),
+(NULL, 600, 8, 128, "40x", "IBM2", 5),
+(950.0, 750, 20, 128, "50x","IBM3", 6),
+(400.0,	500, 10, 32, "12x", "SAM1", 7),
+(350.0,	450, 8, 64, "24x", "SAM2", 8),
+(350.0,	450, 10, 32, "24x", "COM1", 9),
+(350.0,	500, 10, 32, "12x", "COM2", 10),
+(980.0,	900, 40, 128, "40x", "LEN1", 11);
+
+INSERT INTO `printer` (`code`, `model`, `color`, `type`, `price`) VALUES
+(1, "HPP1", 'N', "Laser", 700.0),
+(2, "HPP2", 'Y', "Jet", 950.0),
+(3, "HPP3", 'Y', "Jet", 450.0),
+(4, "CAN1", 'Y', "Laser", 900.0),
+(5, "CAN2", 'N', "Laser", 500.0),
+(6, "CAN3", 'Y', "Jet", 300.0),
+(7, "FU1", 'N', "Matrix", 150.0),
+(8, "FU2", 'N', "Jet", 300.0),
+(9, "FU3", 'Y', "Laser", 700.0),
+(10, "SAM1P", 'N', "Matrix", 100.0);
+
+3.  Do tabeli Product wstawiamy teraz dane w nastêpuj¹cy sposób. Pole type mo¿e przyjmowaæ trzy wartoœci: PC , Printer,  Laptop w zaleznoœci od tabeli z której wprowadzamy dane
+Stosujemy wiêc trzy razy INSERT  z podzapytaniem :
+
+INSERT INTO Product (maker, model, type) 
+ 	SELECT NULL,  model, "PC"  FROM PC ;
+
+INSERT INTO Product (maker, model, type) 
+ 	SELECT NULL,  model, "PRINTER"  FROM  PRINTER ;
+
+INSERT INTO Product (maker, model, type) 
+ 	SELECT NULL,  model, "LAPTOP"  FROM LAPTOP ;
+
+Teraz trzeba zrobiæ  UPDATE (proszê go wpierw uzupe³niæ o wszystkie kody producentów) tak by wprowadziæ odpowiednie nazwy producentów:
+
+UPDATE product
+SET     maker =  CASE  
+            WHEN model  LIKE 'HP%' THEN 'HEWLETT-PACKARD'
+            WHEN model  LIKE 'IBM%' THEN 'IBM'
+			WHEN model  LIKE 'SAM%' THEN 'SAMSUNG'
+			WHEN model  LIKE 'LEN%' THEN 'LENOVO'
+			WHEN model  LIKE 'COM%' THEN 'COMPAQ'
+			WHEN model  LIKE 'TOS%' THEN 'TOSHIBA'
+			WHEN model  LIKE 'AS%' THEN 'ASUS'
+			WHEN model  LIKE 'FU%' THEN 'FUJI'
+			WHEN model  LIKE 'CAN%' THEN 'CANON'
+        END;
+
+Kody producentów urz¹dzeñ :
+HP , HPP -  Hewlett-Packard
+IBM – IBM
+SAM – SAMSUNG
+LEN – LENOWO
+COM - COMPAQ
+TOS – TOSHIBA
+AS – ASUS
+FU – FUJI
+CAN - CANON
+
+4. Teraz realizujemy zapytania korzystaj¹c z podzapytañ
+1)	ZnajdŸ PC-ty które s¹ tañsze od najtañszego laptopa
+2)	Wyœwietl markê oraz typ laptopów, które maj¹ zegar szybszy od przeciêtnego zegara PC-tów
+3)	ZnajdŸ cenê minimaln¹ i maksymaln¹ dla PC-tów
+4)	Wyœwietl liczbê PC-tów dla ka¿dego z producentów 
+5)	Wyœwietl producentów Laptopów którzy produkuj¹ tak¿e drukarki
+6)	Wyœwietl producentów PC-tów którzy nie produkuj¹ Laptopów
+7)	Wyœwietl marki i modele oraz ceny laptopów których cena jest wy¿sza ni¿ cena najdro¿szego PC
+8)	Wyœwietl Laptopy których prêdkoœæ zegara jest ni¿sza ni¿ jakiegokolwiek PC 
+9)	Wyœwietl tych producentów drukarek, którzy nie produkuj¹ PC oraz Laptopów
+10)	ZnajdŸ laptopty których RAM jest wiêkszy ni¿ najmniejszy RAM dla Pc-tów
+11) ZnajdŸ laptopy których HDD jest identyczny ze œrednim HDD PC
+12)	Find the average price for the laptops with the smallest screen size and select from them those who are cheaper than the average
+13) Wyœwietl tych producentów PC, którzy maj¹ w ofercie identyczn¹ liczbê laptopów
+
+
