@@ -1,0 +1,18 @@
+CREATE DATABASE `Biblioteka`;
+
+USE `Biblioteka`;
+CREATE TABLE `Czytelnik`(
+`id` int PRIMARY KEY,
+`nazwisko` varchar(50) NOT NULL,
+`data_urodzenia` date NOT NULL,
+`pesel` int(11) PRIMARY KEY,
+`plec` ENUM("Kobieta","Mezczyzna")
+);
+
+CREATE TABLE `Kiazki`(
+`id_ksiazki` char PRIMARY KEY,
+`tytul` varchar(50) NOT NULL,
+`okladka` blob,
+`data_wypzyczenia` date time NOT NULL,
+`kara` numeric PRIMARY KEY
+);
