@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td{
+            border: 2px dashed green;
+            background-color: yellowgreen;
+        }
+        table{
+            padding: 12px;
+        }
+        td{
+            width: 128px;
+        }
+        div{
+            width: 50%;
+            float: left;
+        }
+        body{
+            background-image: url("https://previews.123rf.com/images/maxsheb/maxsheb1605/maxsheb160501531/56532342-jelly-background.jpg");
+            background-size: 150%;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Numer kształtu:<br>
+        <input type="number" name="shape" id="shape" min="1" max="3"><br>
+        Skomponuj swój kolor, podaj RGB:<br>
+        R: <input type="number" name="r" id="r" min="0" max="255"> G: <input type="number" name="g" id="g" min="0" max="255"> B: <input type="number" name="b" id="b" min="0" max="255"><br>
+        <button onclick="order()">Zamówienie</button>
+        <br>
+        Twoje zamówienie: <span id="chosenShape"></span><br><br><button id="color">Kolor</button><br>
+    </div>
+
+
+    <div>
+        <table>
+            <tr>
+                <td>Kształty</td>
+                <td rowspan="2">Możesz zamówić dowolny kolor cukierka</td>
+            </tr>
+            <tr>
+                <td>
+                    1. cytryna<br>
+                    2. liść<br>
+                    3. banan
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function order(){
+            var r = document.getElementById("r").value
+            var g = document.getElementById("g").value
+            var b = document.getElementById("b").value
+            document.getElementById("color").style.backgroundColor = "rgb("+r+","+g+","+b+")"
+
+            var shape = parseInt(document.getElementById("shape").value)
+            switch(shape){
+                case 1:
+                    document.getElementById("chosenShape").innerHTML = "cytryna"
+                    break;
+                case 2:
+                    document.getElementById("chosenShape").innerHTML = "liść"
+                    break;
+                case 3:
+                    document.getElementById("chosenShape").innerHTML = "banan"
+                    break;
+            }
+        }
+        o_o()
+    </script>
+</body>
+</html>

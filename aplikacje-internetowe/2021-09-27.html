@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <script>
+        
+        /*
+        var height
+        function checkHeight(height = parseInt(prompt("Podaj wzrost:"))){
+            if(height>=180){
+                document.write("Wyski")
+            }else if(height<=150){
+                document.write("Nisoki")
+            }else{
+                document.write("Taki średi bym powiedział, taki średni.")
+            }
+        }
+        checkHeight() */
+
+
+        /*
+        var height
+        var weight
+        function checkHeight(height = parseInt(prompt("Podaj wzrost w cm:")),weight = parseInt(prompt("Podaj wagę w kg:"))){
+            var bmi = weight/Math.pow((0.01*height),2)
+            if(bmi<18.5){
+                document.write("za mało!")
+            }else if(bmi>25){
+                document.write("za dużo!")
+            }else{
+                document.write("OK!")
+            }
+        }
+        checkHeight()
+        */
+
+        function dodawanie(){
+            var wynik = parseFloat(document.getElementById("liczba1").value) + parseFloat(document.getElementById("liczba2").value)
+            document.getElementById("wynik").innerHTML = "Wynik = "+wynik        
+        }
+
+        function odejmowanie(){
+            var wynik = parseFloat(document.getElementById("liczba1").value) - parseFloat(document.getElementById("liczba2").value)
+            document.getElementById("wynik").innerHTML = "Wynik = "+wynik        
+        }
+
+        function mnozenie(){
+            var wynik = parseFloat(document.getElementById("liczba1").value) * parseFloat(document.getElementById("liczba2").value)
+            document.getElementById("wynik").innerHTML = "Wynik = "+wynik        
+        }
+
+        function dzielenie(){
+            var wynik = parseFloat(document.getElementById("liczba1").value) / parseFloat(document.getElementById("liczba2").value)
+            document.getElementById("wynik").innerHTML = "Wynik = "+wynik        
+        }
+        function potega(){
+            var wynik = Math.pow(parseFloat(document.getElementById("liczba1").value),parseFloat(document.getElementById("liczba2").value))
+            document.getElementById("wynik").innerHTML = "Wynik = "+wynik        
+        }
+        function modulo(){
+            var wynik = parseFloat(document.getElementById("liczba1").value) / parseFloat(document.getElementById("liczba2").value)
+            document.getElementById("wynik").innerHTML = "Wynik = "+wynik        
+        }
+    </script>
+
+
+
+    <input type="number" id="liczba1"><button onclick="dodawanie()">+</button><button onclick="odejmowanie()">-</button><button onclick="potega()">^</button><br>
+    <input type="number" id="liczba2"><button onclick="mnozenie()">*</button><button onclick="dzielenie()">/</button><button onclick="modulo()">%</button><br>
+    <span id="wynik">Wynik = 0</span>
+</body>
+</html>
