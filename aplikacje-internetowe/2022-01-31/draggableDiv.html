@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Projekt - Eventy -parametry </title>
+ <style>
+  div {
+   position: fixed;
+   width: 200px;
+   height: 200px;
+   cursor: pointer;
+   /* background-color: #000; */
+   width: 0;
+   height: 0;
+   border-right: 100px solid transparent;
+   border-left: 100px solid transparent;
+   border-bottom: 150px solid black;
+  }
+ </style>
+</head>
+ 
+<body>
+ <div></div>
+ 
+ <script>
+
+    var div = document.querySelector("div")
+    var divX = 150;
+    var divY = 50;
+    div.style.left = divX + "px";
+    div.style.top = divY + "px";
+    var holding = false;
+    
+    div.addEventListener("mousedown", function(){
+        holding = true;
+    })
+
+    
+    div.addEventListener("mouseup", ()=>{
+        holding = false;
+    })
+
+    div.addEventListener("mousemove", function(e){
+            if(holding){
+
+                div.style.left = `${e.clientX-100}px`;
+                div.style.top = `${e.clientY-80}px`;
+
+            }
+            
+    })
+
+    
+
+ </script>
+</body>
+ 
+</html>
