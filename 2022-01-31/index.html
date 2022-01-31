@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Projekt - Eventy -parametry </title>
+ <style>
+  body {
+   margin: 0;
+   height: 100vh;
+  }
+ 
+  h1 {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 40px;
+   font-family: arial;
+  }
+ </style>
+</head>
+ 
+<body>
+ <h1>Rusz myszką</h1>
+ 
+ <script>
+     
+        const h1 = document.querySelector('h1');
+        window.addEventListener('mousemove', function(e) {
+            const x = e.clientX;
+            const y = e.clientY;
+            h1.textContent = x + " , " + y;
+            document.body.style.backgroundColor = `rgb(${(x/window.innerWidth)*100}%, ${(y/window.innerHeight)*100}%, ${100}%)`
+        })
+
+ </script>
+</body>
+ 
+</html>
