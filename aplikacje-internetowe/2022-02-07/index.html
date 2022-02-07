@@ -19,33 +19,34 @@
             
             console.log(e.keyCode+" "+e.which)
 
-            // if(e.keyCode==38){
-            //     r++
-            //     g++
-            //     b++
-            // }else if(e.keyCode==40){
-            //     r--
-            //     g--
-            //     b--
-            // }
-            
-            switch(e.which){
-                case 38:
-                    r++
-                    g++
-                    b++
-                    break;
-                case 40:
-                    r--
-                    g--
-                    b--
-                    break;
+            if(r<255||e.keyCode==40){
+                if(r>0||e.keyCode==38){
+                    // if(e.keyCode==38){
+                    //     r++
+                    //     g++
+                    //     b++
+                    // }else if(e.keyCode==40){
+                    //     r--
+                    //     g--
+                    //     b--
+                    // }
+                    
+                    switch(e.which){
+                        case 38:
+                            r++
+                            g++
+                            b++
+                            break;
+                        case 40:
+                            r--
+                            g--
+                            b--
+                            break;
+                    }
+                    document.body.style.backgroundColor = `rgb(${r},${g},${b})`
+                }
             }
-            
-            document.body.style.backgroundColor = `rgb(${r},${g},${b})`
-
-            
-            
+            console.log(`rgb(${r},${g},${b})`)
         }
 
         window.addEventListener('keydown', changebg)
