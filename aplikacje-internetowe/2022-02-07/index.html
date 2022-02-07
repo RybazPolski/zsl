@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozjaśnij tło</title>
+</head>
+<body>
+    <script>
+
+        let r = 100
+        let g = 100
+        let b = 100
+
+        document.body.style.backgroundColor = `rgb(${r},${g},${b})`
+
+        const changebg = (e)=>{
+            
+            console.log(e.keyCode+" "+e.which)
+
+            // if(e.keyCode==38){
+            //     r++
+            //     g++
+            //     b++
+            // }else if(e.keyCode==40){
+            //     r--
+            //     g--
+            //     b--
+            // }
+            
+            switch(e.which){
+                case 38:
+                    r++
+                    g++
+                    b++
+                    break;
+                case 40:
+                    r--
+                    g--
+                    b--
+                    break;
+            }
+            
+            document.body.style.backgroundColor = `rgb(${r},${g},${b})`
+
+            
+            
+        }
+
+        window.addEventListener('keydown', changebg)
+    </script>
+</body>
+</html>
