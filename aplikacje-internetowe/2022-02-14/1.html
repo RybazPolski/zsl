@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wesele</title>
+</head>
+<body>
+    <form onchange="calculate()">
+        <label>Ilość gości:</label> <input type="number" id="guests" min="0"><br>
+        <input type="checkbox" id="aftermath"> <label>Poprawiny</label>
+    </form>
+    <div id="total"></div>
+
+    <script>
+
+        function calculate(){
+            var multiplier = document.getElementById("aftermath").checked ? 1.3 : 1;  
+            document.getElementById("total").innerHTML = "Koszt: " + document.getElementById("guests").value*100 * multiplier + " zł"; 
+        }
+
+
+
+    </script>
+
+</body>
+</html>

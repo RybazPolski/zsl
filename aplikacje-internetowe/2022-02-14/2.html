@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dowóz pizzy</title>
+</head>
+<body>
+    <form onchange="calculate()">
+        <label>Ilość kilometrów: </label> <input type="number" id="distance" min="0">km<br>
+        <input type="checkbox" id="gdansk"> <label>Jestem z Gdańska</label>
+    </form>
+    <div id="total"></div>
+
+    <script>
+
+        function calculate(){
+              
+            document.getElementById("total").innerHTML = document.getElementById("gdansk").checked==false ? "Dowóz będzie Cię kosztował: " + document.getElementById("distance").value*2 + " zł" : "Dowieziemy twoją pizzę za darmo."; 
+        }
+
+
+
+    </script>
+
+</body>
+</html>

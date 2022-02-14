@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquapark</title>
+</head>
+<body>
+    <label>Ilość biletów normalnych: </label> <input type="number" id="normal" min="0"><br>
+    <label>Ilość biletów ulgowych: </label> <input type="number" id="discounted" min="0"><br>
+    <label>Liczba godzin: </label> <input type="number" id="hours" min="0">h<br>
+    <input type="checkbox" id="bigFamily"> <label>Karta dużej rodziny</label><br>
+    <button onclick="calculate()">Oblicz</button>
+    <div id="total"></div>
+
+    <script>
+
+        function calculate(){
+            var discounted = document.getElementById("discounted").value 
+            var normal = document.getElementById("normal").value - Math.floor(discounted/15);
+            normal = normal<0?0:normal
+            var hours = document.getElementById("hours").value<5 ? document.getElementById("hours").value : 5; 
+            var multiplier = document.getElementById("bigFamily").checked ? 0.9 : 1;
+            var koszt = (normal*10 + discounted*5)*hours*multiplier
+
+            document.getElementById("total").innerHTML = `Całkowity koszt wstępu do aquaparku: ${koszt}zł`
+        }
+
+
+
+    </script>
+
+</body>
+</html>
