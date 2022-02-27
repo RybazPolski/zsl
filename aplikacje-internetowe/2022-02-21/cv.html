@@ -45,11 +45,29 @@
             document.getElementById("min").innerHTML=time.getMinutes()
             document.getElementById("sec").innerHTML=time.getSeconds()
         },100)
+
+        function grade() {
+            var result = document.getElementById('result')
+            var grade = document.getElementById('grade').value
+            result.innerHTML = `Otrzymalem ocenę: ${grade}!`
+            switch(true){
+                case grade == 5 || grade == 6:
+                    result.style.color = "green";
+                    break;
+                case grade == 3 || grade == 4:
+                    result.style.color = "yellow";
+                    break;
+                case grade ==  1 ||grade == 2:
+                    result.style.color = "red";
+                    break;
+            }
+            result.style.marginBottom = "15px"
+        }
     </script>
 
     <h1>Julian Rybarczyk</h1>
     <h2>Kompetencje</h2>
-    <p>> Umiejętność posługiwania się językami PHP, C++, Javascript, HTML, CSS<br>> Certyfikaty Python Core oraz OpenSUSE<br>> Język angielski B2, język niemiecki A1</p>
+    <p>> Umiejętność posługiwania się językami C++, Python, PHP, Javascript, HTML, CSS<br>> Certyfikaty Python Core oraz OpenSUSE<br>> Język angielski B2, język niemiecki A1</p>
 <br>
     <h2>Zainteresowania</h2>
     <p>
@@ -70,5 +88,19 @@
             <div><a href="uslugi_informatyczne/index.html"><img src="6.jpg" alt="Projekt 6"></a></div>
         </div>
     </p>
+    <div>
+        <h2>Oceń moją pracę: <select style="font-size: 24px;" onchange="grade()" id="grade">
+            <option disabled selected>-</option>
+            <option value="6">6</option>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select></h2>
+        <div id="result" style="font-size: 24px; margin-bottom: 64px;">
+
+        </div>
+    </div>
 </body>
 </html>
