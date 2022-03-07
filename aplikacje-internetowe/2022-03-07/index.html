@@ -18,6 +18,9 @@
             background-size: cover;
             background-color: black;
         }
+        body:not(body *){
+            transition: 1s;
+        }
         #arrowLeft{
             height: 64px;
             width: 64px;
@@ -54,6 +57,15 @@
     </style>
 </head>
 <body>
+    <span id="preloader" style="display: none;"> 
+        <!-- Ten span jest użyty jako sztuczka która pozwoli aby wszystkie obrazy były załadowane od razu, a nie dopiero gdy zmieni się slajd poprzez JS -->
+        <img src="./bg1.jpg"><img src="./quote1.png">
+        <img src="./bg2.jpg"><img src="./quote2.png">
+        <img src="./bg3.jpg"><img src="./quote3.png">
+        <img src="./bg4.jpg"><img src="./quote4.png">
+        <img src="./bg5.jpg"><img src="./quote5.png">
+
+    </span>
     <table>
         <tr>
             <td>
@@ -125,7 +137,7 @@
 
                         next()
 
-                    },3000)
+                    },10000)
             }else{
                 clearInterval(slideshow)
             }
