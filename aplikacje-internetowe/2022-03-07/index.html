@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokaz slajdów</title>
+    <style>
+        #image{
+            height: 512px;
+            width: 512px;
+            background-position: center;
+            background-size: cover;
+            transition: 1s;
+        }
+        body{
+            background-position: center;
+            background-size: cover;
+            background-color: black;
+        }
+        #arrowLeft{
+            height: 64px;
+            width: 64px;
+            background-position: center;
+            background-size: cover;
+            background-image: url(./arrow.png);
+            transform: scaleX(-1);
+            opacity: 0.5;
+            transition: 0.5s;
+        }
+        #arrowRight{
+            height: 64px;
+            width: 64px;
+            background-position: center;
+            background-image: url(./arrow.png);
+            background-size: cover;
+            opacity: 0.5;
+            transition: 0.5s;
+        }
+        #arrowRight:hover{
+            opacity: 1;
+        }
+        #arrowLeft:hover{
+            opacity: 1;
+        }
+        table{
+            margin: auto;
+            background-color: white;
+            border-radius: 32px;
+        }
+        #imgTd{
+            border: 4px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <div id="arrowLeft" onclick="back()"></div>
+            </td>
+            <td id="imgTd">
+                <div id="image"></div>
+            </td>
+            <td>
+                <div id="arrowRight" onclick="next()"></div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td rowspan="2" style="text-align: right;">
+                <input type="checkbox" checked onclick="toggleSlideshow()" id="toggle"><label>Autoplay</label>
+            </td>
+        </tr>
+    </table>
+    <script>
+
+        var slideshow
+        window.onload = ()=>{
+            document.getElementById('toggle').checked = "true"
+                        next()
+            slideshow = setInterval(()=>{
+
+                        next()
+
+                    },3000)
+        }
+
+        class Collection{
+            constructor(img, bg, frameColor){
+                this.img = img
+                this.bg = bg
+                this.frameColor = frameColor
+            }
+        }
+
+        var imgs = new Array;
+        imgs[0] = new Collection("quote1.png","bg1.jpg","777777");
+        imgs[1] = new Collection("quote2.png","bg2.jpg","e19a00");
+        imgs[2] = new Collection("quote3.png","bg3.jpg","7400ff");
+        imgs[3] = new Collection("quote4.png","bg4.webp","bf00ff");
+        imgs[4] = new Collection("quote5.png","bg5.jpg","ff0000");
+
+        var curImg = -1;
+
+        function setImage(n){
+            document.body.style.backgroundImage = `url(${imgs[n].bg})`
+            document.getElementById('image').style.backgroundImage = `url(${imgs[n].img})`
+            document.getElementById('imgTd').style.borderColor = "#"+imgs[n].frameColor
+        }
+
+        function next(){
+            curImg++
+            setImage(curImg%imgs.length)
+        }
+        function back(){
+            curImg--
+            setImage(curImg%imgs.length)
+        }
+
+        function toggleSlideshow(){
+            
+            if(document.getElementById('toggle').checked){
+                slideshow = setInterval(()=>{
+
+                        next()
+
+                    },3000)
+            }else{
+                clearInterval(slideshow)
+            }
+
+            
+        }
+
+        
+
+    </script>
+</body>
+</html>
