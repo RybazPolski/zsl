@@ -1,0 +1,88 @@
+-- relacje
+
+ALTER TABLE `obrazy` ADD FOREIGN KEY (`id_malarza`) REFERENCES `malarze`(`id_malarza`);
+
+ALTER TABLE `obrazy` ADD FOREIGN KEY (`id_oddzialu`) REFERENCES `oddzialy`(`id_oddzialu`);
+
+
+
+
+-- import
+
+LOAD DATA INFILE "/home/ryba/Downloads/kartkowka/informatyka/Dane/oddzialy.txt"
+INTO TABLE `oddzialy`
+FIELDS TERMINATED BY "#"
+LINES TERMINATED BY "\n"
+IGNORE 1 LINES;
+
+LOAD DATA INFILE "/home/ryba/Downloads/kartkowka/informatyka/Dane/malarze.txt"
+INTO TABLE `malarze`
+FIELDS TERMINATED BY "#"
+LINES TERMINATED BY "\n"
+IGNORE 1 LINES;
+
+LOAD DATA INFILE "/home/ryba/Downloads/kartkowka/informatyka/Dane/obrazy.txt"
+INTO TABLE `obrazy`
+FIELDS TERMINATED BY "#"
+LINES TERMINATED BY "\n"
+IGNORE 1 LINES;
+
+
+
+-- zapytanie 1
+
+SELECT `malarze`.`imie`, `malarze`.`nazwisko`,COUNT(`id_obrazu`) AS `liczba_obrazow`
+FROM `obrazy`
+INNER JOIN `malarze` ON `malarze`.`id_malarza`=`obrazy`.`id_malarza`
+WHERE `obrazy`.`stan` LIKE "%ekspozycja%"
+GROUP BY `obrazy`.`id_malarza`
+ORDER BY `liczba_obrazow` DESC
+LIMIT 2;
+
+
+-- zapytanie 2
+
+SELECT `imie`,`nazwisko`,`tytul` FROM `obrazy` INNER JOIN `malarze` ON `obrazy`.`id_malarza`=`malarze`.`id_malarza` WHERE `tytul` LIKE "%Polowanie%"||`tytul` LIKE "%polowanie%"; 
+
+
+
+-- zapytanie 3
+
+SELECT `miejscowosc`, `m`.`w_magazynie`,`c`.`ekspozycja_czasowa`,`s`.`ekspozycja_stala`,`w`.`wypozyczony` FROM `oddzialy`
+
+INNER JOIN (
+    SELECT `id_oddzialu`, COUNT(`id_obrazu`) AS `w_magazynie` FROM `obrazy` WHERE `obrazy`.`stan` LIKE "%w magazynie%" GROUP BY `id_oddzialu`
+) AS `m` ON `oddzialy`.`id_oddzialu`=`m`.`id_oddzialu`
+
+INNER JOIN (
+    SELECT `id_oddzialu`, COUNT(`id_obrazu`) AS `ekspozycja_czasowa` FROM `obrazy` WHERE `obrazy`.`stan` LIKE "%ekspozycja czasowa%" GROUP BY `id_oddzialu`
+) AS `c` ON `oddzialy`.`id_oddzialu`=`c`.`id_oddzialu`
+
+INNER JOIN (
+    SELECT `id_oddzialu`, COUNT(`id_obrazu`) AS `ekspozycja_stala` FROM `obrazy` WHERE `obrazy`.`stan` LIKE "%ekspozycja stala%" GROUP BY `id_oddzialu`
+) AS `s` ON `oddzialy`.`id_oddzialu`=`s`.`id_oddzialu`
+
+INNER JOIN (
+    SELECT `id_oddzialu`, COUNT(`id_obrazu`) AS `wypozyczony` FROM `obrazy` WHERE `obrazy`.`stan` LIKE "%wypozyczony%" GROUP BY `id_oddzialu`
+) AS `w` ON `oddzialy`.`id_oddzialu`=`w`.`id_oddzialu`
+
+GROUP BY `oddzialy`.`id_oddzialu`;
+
+
+
+
+-- zapytanie 4
+
+SELECT COUNT(SUBSTR(`tytul`,1,1)), SUBSTR(`tytul`,1,1) FROM `obrazy` 
+WHERE `id_oddzialu`=3 GROUP BY SUBSTR(`tytul`,1,1) ORDER BY COUNT(SUBSTR(`tytul`,1,1)) DESC LIMIT 1;
+
+
+
+-- zapytanie 5
+
+SELECT `imie`,`nazwisko` FROM `obrazy` 
+INNER JOIN `malarze` ON `obrazy`.`id_malarza`=`malarze`.`id_malarza`
+WHERE `obrazy`.`stan` LIKE "%wypozyczony%"
+GROUP BY `malarze`.`id_malarza`
+ORDER BY COUNT(`id_obrazu`) DESC
+LIMIT 1;
