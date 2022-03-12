@@ -1,0 +1,7 @@
+ID_oddzialu Miejscowosc
+1 Krakow
+2 Wroclaw
+3 Warszawa
+4 Nieborow
+5 Gdansk
+6 Szczecin
