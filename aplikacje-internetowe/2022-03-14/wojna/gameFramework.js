@@ -88,6 +88,15 @@ gf.turnOver = (players,qualifed,trId,row)=>{
                     }
                 }
             }
+        }else{
+            for(var player of players){
+                if(winners.includes(player.name)){
+                    for(var card of cardsInGame){
+                        card.owner = player.name;
+                        player.deck.push(card);
+                    }
+                }
+            }
         }
         gf.updateDecks(players,'count')
         
