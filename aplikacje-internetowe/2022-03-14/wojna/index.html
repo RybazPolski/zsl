@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wojna</title>
+    <link rel="stylesheet" href="./style.css"> 
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./gameFramework.js"></script>
+    <script src="./game.js"></script>
+    <style id="jsstyle"></style>
+</head>
+<body>
+    
+    
+    
+    <div id="game">
+        <table id="controls">
+            <tr>
+                <td>
+                <button onclick="turnOver()">Wyłóż karty!</button>
+                </td>
+            </tr>
+        </table>
+        <table id="table">
+            <tr id="shownCards">
+                <td id="titleScreen">
+                    <div id="titleScreenContent">
+                        <div id="addPlayers">
+                            <h1>Dodaj graczy:</h1>
+                            <span id="setPlayers">
+                                <label></label><input class="nicknameField" type="text" placeholder="Wpisz nazwę gracza..."><br>
+                                <label></label><input class="nicknameField" type="text" placeholder="Wpisz nazwę gracza..."><br>
+                            </span>
+                            <button onclick="addNextPlayer()"> + </button><button onclick="tryStart()">Graj!</button>
+                        </div>
+                    </div>
+                    
+                    </td>
+            </tr>
+            <tr id="decks"></tr>
+            <tr id="players"></tr>
+        </table>
+
+    </div>
+
+    <script>
+        function addNextPlayer(){
+            $('#setPlayers').append('<span class="additionalPlayer"><label></label><input class="nicknameField" type="text" placeholder="Wpisz nazwę gracza..."><button class="removePlayer" onclick="removeAdditionalPlayer(this)"> - </button><br></span>')
+
+        }
+        function removeAdditionalPlayer(event){
+            event.parentElement.remove();
+        }
+    </script>
+
+</body>
+</html>
