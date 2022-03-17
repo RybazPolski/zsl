@@ -1,0 +1,58 @@
+.card{
+    height: 20vh;
+    background-image: url(./graphics/back.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#decks{
+    height: 20vh;
+}
+#shownCards{
+    height: 60vh;
+}
+#table{
+    width: 80vw;
+    height: 90vh;
+    margin: auto;
+    background-image: url(./graphics/tableBg.jpg);
+    padding: 1vw;
+    border-radius: 1vw;
+    text-align: center; 
+    vertical-align: middle;
+}
+#titleScreen{
+    text-align: left;
+    vertical-align: middle;
+}
+#titleScreenContent{
+    width: 50%;
+    margin: 0 25%;
+}
+#addPlayer{
+    vertical-align: top;
+}
+#addPlayers, #cardDecor{
+    display: inline-block;
+}
+#cardDecor img{
+    height: 30vh;
+    transform: rotate(-30deg);
+    position: relative;
+    top: 5vh;
+    left: 5vw;
+}
+#players{
+    font-size: 3vh;
+}
+.count{
+    width: 3vh;
+    height: 3vh;
+    font-size: 2.5vh;
+    background-color: white;
+    border: 1px solid black;
+    position: relative;
+    left: calc(50% - 3vh + calc(20vh * 0.655 / 2));
+    bottom: 0;
+    z-index: 10;
+}
