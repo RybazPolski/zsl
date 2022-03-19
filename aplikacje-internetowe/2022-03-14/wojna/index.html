@@ -13,27 +13,32 @@
 </head>
 <body>
     
-    
+    <div id="winnerSplash" style="display: none;">
+        <h2>Zwycięża...</h2>
+        <h1 id="winner">Lorem Ipsum!</h1>
+        <h2 id="playAgain"><a href="./index.html">Zagraj ponownie!</a></h2>
+    </div>
     
     <div id="game">
-        <table id="controls">
+        <table id="controls" style="display: none;">
             <tr>
                 <td>
                 <button onclick="turnOver()">Wyłóż karty!</button>
                 </td>
             </tr>
         </table>
-        <table id="table">
+        <table id="table" style="table-layout: fixed;">
             <tr id="shownCards">
                 <td id="titleScreen">
                     <div id="titleScreenContent">
                         <div id="addPlayers">
-                            <h1>Dodaj graczy:</h1>
+                            <h1>Nazwij graczy:</h1>
                             <span id="setPlayers">
                                 <label></label><input class="nicknameField" type="text" placeholder="Wpisz nazwę gracza..."><br>
                                 <label></label><input class="nicknameField" type="text" placeholder="Wpisz nazwę gracza..."><br>
                             </span>
-                            <button onclick="addNextPlayer()"> + </button><button onclick="tryStart()">Graj!</button>
+                            <!-- <button onclick="addNextPlayer()" id="adder"> + </button> -->
+                            <button onclick="tryStart()">Graj!</button>
                         </div>
                     </div>
                     
@@ -48,12 +53,18 @@
     <script>
         function addNextPlayer(){
             $('#setPlayers').append('<span class="additionalPlayer"><label></label><input class="nicknameField" type="text" placeholder="Wpisz nazwę gracza..."><button class="removePlayer" onclick="removeAdditionalPlayer(this)"> - </button><br></span>')
-
+            let playerFields = document.getElementsByClassName('nicknameField');
+            if(playerFields.length>=4){
+                document.getElementById("adder").style.display="none"
+            }
         }
         function removeAdditionalPlayer(event){
             event.parentElement.remove();
+            let playerFields = document.getElementsByClassName('nicknameField');
+            document.getElementById("adder").style.display="block"
         }
     </script>
+
 
 </body>
 </html>
