@@ -1,5 +1,6 @@
 var deck = [];
 var players = [];
+var gf = new GameFramework();
 
 for(let i=2; i<=14; i++){
     deck.push(new Card("hearts",i))
@@ -41,8 +42,9 @@ function initialize(){
         $('#decks').append(`<td><div class="card"><div class="count">${player.deck.length}</div></div></td>`)    
         $('#players').append(`<td><strong>${player.name}<strong></td>`)    
     }
+    $('#controls').css('display','block')
 
 }
 function turnOver(){
-    gf.turnOver(players,gf.selectPlayersNames(players),"shownCards",0)
+    gf.turnOver(players,"shownCards",0)
 }
