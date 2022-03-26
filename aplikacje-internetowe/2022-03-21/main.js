@@ -30,3 +30,4 @@ document.getElementById("left").addEventListener('click',()=>{gallery.moveImages
 document.getElementById("right").addEventListener('click',()=>{gallery.moveImages()})
 
 gallery.moveImages()
+gallery.moveImages(true)
