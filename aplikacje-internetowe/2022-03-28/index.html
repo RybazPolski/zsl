@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zegar</title>
+    <style>
+        img{
+            width: 10%;
+        }
+        span{
+            margin-right: 2.5%;
+        }
+        body{
+            text-align: center;
+        }
+        #calendar, #clock{
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1%;
+            width: 75%;
+        }
+        #calendar{
+            background-color: black;
+            border-radius: 15% 15% 0 0;
+        }
+        #clock{
+            background-color: red;
+            border-radius: 0 0 15% 15%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="calendar">
+        <span id="dd"></span>
+        <span id="mm"></span>
+        <span id="yyyy"></span>
+    </div>
+    <div id="clock">
+        <span id="hh"></span>
+        <span id="ii"></span>
+        <span id="ss"></span>
+    </div>
+
+    <script>
+
+
+        function setImage(id, nums, suit="spades"){
+            let element = document.getElementById(id)
+            if(nums.length<2){
+                nums = "0"+nums
+            }
+            element.innerHTML = "";
+            for(let i=0; i<nums.length; i++){
+                let image = document.createElement("img")
+                image.setAttribute("src",`graphics/${nums[i]}_of_${suit}.png`) 
+                element.append(image)
+            }
+        }
+
+        let clock = setInterval(()=>{
+
+            let date = new Date();
+            let day = date.getDate().toString()
+            let month = (date.getMonth()+1).toString()
+            let year = date.getFullYear().toString()
+            let hours = date.getHours().toString()
+            let minutes = date.getMinutes().toString()
+            let seconds = date.getSeconds().toString()
+            
+            setImage("dd",day,"hearts")
+            setImage("mm",month,"spades")
+            setImage("yyyy",year,"hearts")
+            setImage("hh",hours,"clubs")
+            setImage("ii",minutes,"diamonds")
+            setImage("ss",seconds,"clubs")
+
+        },1000)
+
+
+    </script>
+</body>
+</html>
