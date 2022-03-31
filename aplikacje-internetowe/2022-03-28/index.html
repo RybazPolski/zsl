@@ -49,7 +49,7 @@
 
         function setImage(id, nums, suit="spades"){
             let element = document.getElementById(id)
-            if(nums.length<2){
+            while(nums.length<2){
                 nums = "0"+nums
             }
             element.innerHTML = "";
