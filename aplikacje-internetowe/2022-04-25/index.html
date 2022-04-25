@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Złap przycisk</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+            cursor:grab;
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            background-image: url(./bg.png);
+            background-position: bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        #button{
+            cursor: grab;
+            background-image: url(yt.png);
+            height: 5vw;
+            width: 7.1vw;
+            background-size: contain;
+            left: 46.45vw;
+            top: calc(50vh - 5vw);
+        }
+        #win{
+            background-color: red;
+            text-align: center;
+            vertical-align: middle;
+            position: absolute;
+            z-index: 100;
+            color: white;
+            height: 100vh;
+            width: 100vw;
+            display: none;
+            float: left;
+        }
+    </style>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" id="link"></a>
+    <!-- <button id="button" style="position: relative;" onclick="win()">Kliknij mnie</button> -->
+    <div id="button" style="position: relative;" onclick="win()"></div>
+    <div id="win"><h1>Wygrałeś/aś!</h1><h2><a style="color: white;" href="./index.html">Zagraj ponownie</a></h2></div>
+    <script>
+
+        var ready = true;
+
+        var win = ()=>{
+            document.getElementById('link').click()
+            document.getElementById('win').style.display = "inline";
+            document.getElementById('button').style.display = "none";
+
+        }
+
+        var randomInt = (min, max)=>{
+            return min + Math.floor(Math.random() * (max+1-min));
+        }
+
+        var escaper = document.getElementById("button").addEventListener("pointerover",()=>{
+            
+            if(ready){
+                ready = false
+                setTimeout(()=>{
+                    document.getElementById("button").style.left = randomInt(0,95)+"vw"
+                    document.getElementById("button").style.top = randomInt(0,95)+"vh"
+                    ready = true
+                },200)
+
+            }
+        })
+
+    </script>    
+
+</body>
+</html>
