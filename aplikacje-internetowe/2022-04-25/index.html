@@ -94,8 +94,12 @@
             if(ready){
                 ready = false
                 setTimeout(()=>{
-                    document.getElementById("button").style.left = randomInt(0,95)+"vw"
-                    document.getElementById("button").style.top = randomInt(0,95)+"vh"
+
+                    var vmax = window.innerWidth > window.innerHeight ? window.innerWidth : window.innerHeight 
+                    var maxW = ((window.innerWidth-(0.071*vmax))/window.innerWidth) * 100
+                    var maxH = ((window.innerHeight-(0.05*vmax))/window.innerHeight) * 100
+                    document.getElementById("button").style.left = randomInt(0,Math.floor(maxW))+"vw"
+                    document.getElementById("button").style.top = randomInt(0,Math.floor(maxH))+"vh"
                     ready = true
                 },200)
 
