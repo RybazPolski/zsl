@@ -22,30 +22,59 @@
         #button{
             cursor: grab;
             background-image: url(yt.png);
-            height: 5vw;
-            width: 7.1vw;
+            height: 5vmax;
+            width: 7.1vmax;
             background-size: contain;
             left: 46.45vw;
             top: calc(50vh - 5vw);
         }
-        #win{
+        #win, #ban{
             background-color: red;
             text-align: center;
             vertical-align: middle;
             position: absolute;
             z-index: 100;
             color: white;
-            height: 100vh;
-            width: 100vw;
+            height: 60vh;
+            width: 96vw;
             display: none;
             float: left;
+            padding-top: 40vh;
+            padding-left: 2vw;
+            padding-right: 2vw;
+        }
+        #ban{
+            background-color: grey;
+            /* color: black; */
+            background-image: url(./ban.png);
+            display: inline;
+            align-content: center;
         }
     </style>
+    <div id="ban">
+        <h1>Gra przeznaczona jedynie na urządzenia desktopowe.</h1>
+    </div>
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" id="link"></a>
     <!-- <button id="button" style="position: relative;" onclick="win()">Kliknij mnie</button> -->
     <div id="button" style="position: relative;" onclick="win()"></div>
     <div id="win"><h1>Wygrałeś/aś!</h1><h2><a style="color: white;" href="./index.html">Zagraj ponownie</a></h2></div>
     <script>
+
+        const deviceType = () => {
+            const ua = navigator.userAgent;
+            if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+                return "tablet";
+            }
+            else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+                return "mobile";
+            }
+            return "desktop";
+        };
+        //skopiowane z https://attacomsian.com/blog/javascript-detect-mobile-device
+
+        if(deviceType()=="desktop"){
+            document.getElementById('ban').style.display='none'
+        }
 
         var ready = true;
 
