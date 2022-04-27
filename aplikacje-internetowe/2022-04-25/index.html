@@ -54,7 +54,7 @@
     <div id="ban">
         <h1>Gra przeznaczona jedynie na urządzenia desktopowe.</h1>
     </div>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" id="link"></a>
+    <a target="_blank" id="link"></a>
     <!-- <button id="button" style="position: relative;" onclick="win()">Kliknij mnie</button> -->
     <div id="button" style="position: relative;" onclick="win()"></div>
     <div id="win"><h1>Wygrałeś/aś!</h1><h2><a style="color: white;" href="./index.html">Zagraj ponownie</a></h2></div>
@@ -79,6 +79,7 @@
         var ready = true;
 
         var win = ()=>{
+            document.getElementById('link').setAttribute("href","https://youtu.be/dQw4w9WgXcQ")
             document.getElementById('link').click()
             document.getElementById('win').style.display = "inline";
             document.getElementById('button').style.display = "none";
