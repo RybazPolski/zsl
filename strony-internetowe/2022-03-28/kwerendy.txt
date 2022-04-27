@@ -1,0 +1,11 @@
+1.
+SELECT `informacja`,`wart_min`,`wart_max` FROM `bmi` WHERE 1
+
+2.
+INSERT INTO `wynik`(`bmi_id`, `data_pomiaru`, `wynik`) VALUES (3,'2020-05-10',27)
+
+3.
+SELECT `wynik`,`data_pomiaru`,`bmi`.`informacja` FROM `wynik` INNER JOIN `bmi` ON `bmi`.`id`=`wynik`.`bmi_id`
+
+4.
+SELECT `wart_min`,`wart_max` FROM `bmi` WHERE `informacja`="nadwaga"
