@@ -3,11 +3,20 @@ session_start();
 if(isset($_GET['akcja'])&&$_GET['akcja']=='wyloguj'){
     unset($_SESSION['zalogowany']);
 }
-if(isset($_POST['login'])&&isset($_POST['pass'])&&$_POST['login']=='admin'&&$_POST['pass']=='admin'){
-    $_SESSION['zalogowany'] = 1;
-}
-if(isset($_POST['login'])&&isset($_POST['pass'])&&$_POST['login']=='user'&&$_POST['pass']=='user'){
-    $_SESSION['zalogowany'] = 2;
+if(isset($_POST['login'])&&isset($_POST['pass'])){
+    $conn = new mysqli('localhost','root','','users');
+    $res = $conn->query("SELECT * FROM `users` WHERE `login`='".$_POST['login']."' AND `password`=PASSWORD('".$_POST['pass']."')");
+    if($res->num_rows==1){
+        while($obj = $res->fetch_object()){
+            $_SESSION['zalogowany'] = $obj->id;
+            $_SESSION['imie'] = $obj->name;
+            $_SESSION['surimie'] = $obj->surname;
+            $_SESSION['uprawnienia'] = $obj->permissions;
+        }
+    }
+    $conn->close();
+   
+    
 }
 if(!isset($_SESSION['zalogowany'])){
 ?>
@@ -29,11 +38,13 @@ if(!isset($_SESSION['zalogowany'])){
 </html>
 <?php
 }else{
-    if($_SESSION['zalogowany'] == 1){
-        echo "Witaj na stronie panelu administracyjnego, administratorze!<br>";
+    if($_SESSION['uprawnienia'] == 1){
+        echo "Witaj na stronie panelu administracyjnego, ".$_SESSION['imie']." ".$_SESSION['surimie']."!<br>";
     }else{
-        echo "Witaj na stronie, ".$_POST['login']."!<br>";
+        echo "Witaj na stronie, ".$_SESSION['imie']." ".$_SESSION['surimie']."!<br>";
     }
     echo "<a href='logowanie.php?akcja=wyloguj'>wyloguj</a>";
 }
 ?>
+
+<!-- INSERT INTO `users`(`name`, `surname`, `login`, `password`, `permissions`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]') -->
