@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Obiekty - zadania 2</title>
+</head>
+<body>
+
+    <script>
+
+        var pb95 = 7
+
+        const brumbrum = {
+            marka: "BMW",
+            model: "i4", 
+            cena: 200000, 
+            combustion: 10,
+            year: parseInt(prompt("Podaj rocznik")),
+            koszt100km: function(){
+                return this.combustion*pb95
+            },
+            ageCar: function(){
+                return (new Date().getFullYear()) - this.year
+            }
+        }
+
+        console.log(brumbrum.koszt100km()+"zł")
+        console.log(brumbrum.ageCar()+" lat")
+        
+        
+    </script>
+</body>
+</html>

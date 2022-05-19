@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Obiekty - zadania</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            UWAGA! 
+            Porównanie Olafa i Renaty do produktów powstało w celach humorystycznych za ich zgodą.
+        */
+
+        class Produkt{
+            constructor(nazwa, waga, cena) {
+                this.nazwa = nazwa;
+                this.waga = waga;
+                this.cena = cena;
+            }
+        }
+
+        var p1 = new Produkt("Olaf",50,800);
+        var p2 = new Produkt("Renata",82,20);
+
+        console.log(`Produkt numer 1 nosi nazwę: ${p1.nazwa}`)
+        console.log(`Produkt numer 2 nosi nazwę: ${p2.nazwa}`)
+        console.log(`Oba produkty w sumie ważą: ${p1.waga + p2.waga}`)
+        console.log(`Droższym z nich jest produkt: ${p1.cena > p2.cena ? p1.nazwa : p2.nazwa}`)
+        
+    </script>
+</body>
+</html>
