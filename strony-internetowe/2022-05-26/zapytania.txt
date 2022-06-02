@@ -1,0 +1,11 @@
+-- kw1
+SELECT `gatunek`,`obraz` FROM `zwierzeta` INNER JOIN `gromady` ON `zwierzeta`.`Gromady_id`=`gromady`.`id` WHERE `nazwa`="ptaki";
+
+-- kw2
+SELECT `zwierzeta`.`id`,`Gromady_id`,`wystepowanie` FROM `zwierzeta` INNER JOIN `gromady` ON `zwierzeta`.`Gromady_id`=`gromady`.`id` WHERE `nazwa`="ptaki" OR `nazwa`="ssaki";
+
+-- kw3
+SELECT `gatunek`,`odzywianie`.`id`,`rodzaj` FROM `zwierzeta` INNER JOIN `odzywianie` ON `zwierzeta`.`Odzywianie_id`=`odzywianie`.`id`;
+
+-- kw4
+ALTER TABLE `odzywianie` DROP COLUMN `informacja`;

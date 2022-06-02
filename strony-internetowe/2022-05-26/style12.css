@@ -1,0 +1,36 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+.menu{
+    background-color: sandybrown;
+    height: 120px;
+    width: 60%;
+}
+.logo{
+    background-color: sienna;
+    color: white;
+    text-align: center;
+    height: 120px;
+    width: 40%;
+}
+.left{
+    background-color: sienna;
+    color: white;
+    height: 700px;
+    width: 40%;    
+}
+footer{
+    background-color: #4D1900;
+    color: white;
+    text-align: right;
+}
+a{
+    background-color: green;
+    color: yellow;
+    padding: 20px 50px 20px 50px;
+}
+a:hover{
+    background-color: yellow;
+    color: green;
+}
