@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.png">
+    <title>No scam legit szop</title>
+    <style>
+        body{
+            background-image: url(./bg.jpg);
+            background-size: cover;
+        }
+        .car table .carImage img{
+            object-fit: cover;
+            width: 256px;
+            height: 256px;
+            clip-path: 
+                polygon(
+                    0% 5%,     /* top left */
+                    5% 0%,     /* top left */
+                    95% 0%,    /* top right */
+                    100% 5%,   /* top right */
+                    100% 95%,  /* bottom right */
+                    95% 100%,  /* bottom right */
+                    5% 100%,   /* bottom left */
+                    0 95%      /* bottom left */
+                );
+        }
+        .car table .priceBuy{
+            text-align: right;
+        }
+        .car{
+            display: inline-block;
+            margin: 32px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="id">coś</div>
+
+    <script>
+        class Car{
+            constructor(brand, model, price, photo){
+                this.brand = brand
+                this.model = model
+                this.price = price
+                this.photo = photo
+                self.tak = "nie"
+            }
+            append = function(containerId,overwrite) {
+                if(overwrite){document.getElementById(containerId).innerHTML = ""}
+                document.getElementById(containerId).innerHTML += `<div class='car'><table><tr><td class='carImage' colspan='2'><img src='./images/${this.photo}' alt='${this.model}'></td></tr><tr><td class='modelBrand'>${this.brand}<br>${this.model}</td><td class='priceBuy'>${this.price} zł<br><button>Kup</button></td></tr></div>`
+            }
+        }
+
+        new Car("Fiat","Multipla",210000.99,"multipla.jpg").append("id",true);
+        new Car("Mercedes","Vision EQXX",180999.99,"vision.jpg").append("id",false);
+        new Car("Tesla","Cybertruck",129999.99,"cybertruck.jpg").append("id",false);
+        new Car("Volkswagen","Garbus",500000.98,"garbus.webp").append("id",false);
+        new Car("Jeep","Wrangler Rubicon",10000.98,"jeep.jpg").append("id",false);
+
+    </script>
+</body>
+</html>
