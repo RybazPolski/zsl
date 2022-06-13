@@ -1,0 +1,22 @@
+body{
+    background-image: url('grafika/tlo.gif');
+    font-size: 16pt;
+    margin-left: 10%;
+}
+div.logo{
+    background: url('grafika/logo.png') center no-repeat;
+    height: 150px;
+    width: 750px;
+    border: dashed 2px white;
+}
+div.menu{
+    background: url('grafika/logo.png') center no-repeat;
+    height: 150px;
+    width: 750px;
+}
+div.glowna{
+    background: yellow;
+    height: 150px;
+    width: 750px;
+    border: dashed 2px red;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+    <style>
+        img{
+            width: 250px;
+            transition-property: all;
+        }
+        #donut{
+            transition-duration: 0.5s;
+        }
+        #donut:hover{
+            filter: blur(10px);
+        }
+        #bb8{
+            transition-duration: 1s;
+        }
+        #bb8:hover{
+            transform: rotate(3600deg);
+        }
+        #minecraft{
+            width: 250px;
+            transition-duration: 10s;
+        }
+        #minecraft:hover{
+            width: 500px;
+        }
+        #lego{
+            transition-duration: 5s;
+            height: 187.5px;
+        }
+        #lego:hover{
+            width: 50px;
+            height: 300px;
+        }
+        #spotify{
+            transition-duration: 3s;
+            filter: hue-rotate(0);
+        }
+        #spotify:hover{
+            filter: hue-rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <img src="donut.png" id="donut">
+    <img src="bb8.png" id="bb8">
+    <img src="minecraft.png" id="minecraft">
+    <img src="spotify.png" id="spotify">
+    <img src="lego.jpeg" id="lego">
+</body>
+</html>

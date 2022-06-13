@@ -1,0 +1,18 @@
+body {
+    background-color: olive;
+    font-family: "times new roman", serif;
+    color: rgb(110, 58, 9);
+}
+
+h2 {
+    color: darkolivegreen;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    color: black;
+}

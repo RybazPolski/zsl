@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+}
+html{
+    font-family: Garamond;
+}
+#upperLeft{
+    height: 500px; 
+    width: 25%;
+    background-color: lavender;
+    
+}
+#lowerLeft{
+    height: 300px;
+    width: 25%;
+    background-color: lavender;
+}
+#upperRight{
+    height: 150px;
+    width: 75%;
+    background-color: indigo;
+    color: white;
+    font-size: 200%;
+    text-align: center;
+    float: right;
+}
+#lowerRight{
+    height: 650px;
+    width: 75%;
+    background-color: lavender;
+    font-size: 200%;
+    text-align: center;
+    float: right;
+}
+footer{
+    background-color: indigo;
+    color: white;
+    text-align: right;
+}
+ul{
+    list-style-type: square;
+}
+img{
+    padding: 5px;
+    margin: 10px;
+}
+img:hover{
+    padding: 4px;
+    border-color: indigo;
+    border-style: solid;
+}

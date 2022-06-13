@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Usługi kosmetyczne</title>
+        <link rel="stylesheet" href="styl.css">
+    </head>
+    <body>
+        <section id="upperRight">
+            <h1>
+                Salon Kosmetyczny
+            </h1>
+        </section>
+        <section id="lowerRight">
+            <h2>Sprawdź cenę swojej wizyty</h2>
+            <form>
+                <input type="checkbox" id="peeling">
+                <label for="peeling">Peeling</label><br>
+                <input type="checkbox" id="maska">
+                <label for="maska">Maska</label><br>
+                <input type="checkbox" id="masaz">
+                <label for="masaz">Masaż twarzy</label><br>
+                <input type="checkbox" id="brwi">
+                <label for="brwi">Regulacja brwi</label><br>
+            </form>
+                <button onclick="suma()">Sprawdź cenę</button><br><br>
+                <div id="cena">Cena zabiegów:</div>
+        </section>
+        <script src="main.js"></script>
+        <section id="upperLeft">
+            <h2>W ofercie</h2> 
+            <ul>
+                <li>
+                    <a href="twarz.html">Zabiegi na twarz</a>
+                    <ol>
+                        <li>
+                            Peeling
+                        </li>
+                        <li>
+                            Maska
+                        </li>
+                        <li>
+                            Regulacja brwi
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Masaż
+                </li>
+                <li>
+                    Dieta Oczyszczająca
+                </li>
+            </ul>
+            <a href="index.html">Do strony głównej</a>
+        </section>
+        <section id="lowerLeft">
+            <img src="obraz1.jpg" alt="Kosmetyczka">
+        </section>
+        <footer>
+            <p>Autor: 00000000000</p>
+        </footer>
+    </body>
+</html>

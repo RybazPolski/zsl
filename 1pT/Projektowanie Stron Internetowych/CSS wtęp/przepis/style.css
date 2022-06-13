@@ -1,0 +1,11 @@
+body {
+    color: white;
+    background-color: sandybrown;
+}
+
+img {
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}

@@ -1,0 +1,54 @@
+.logo{
+    background-color: #FF7F50;
+    width: 25%;
+    height: 100px;
+    float: left;
+}
+.banner{
+    background-color: #FF7F50;
+    text-align: center;
+    width: 75%;
+    height: 100px;
+    font-size: 130%;
+    float: left;
+}
+.main{
+    background-color: #FF7F50;
+    padding: 70px;
+}
+.left{
+    clear: both;
+    width: 40%;
+    height: 400px;
+    float: left;
+}
+.right{
+    width: 60%;
+    height: 400px;
+    text-align: right;
+}
+footer{
+    background-color: #FF7F50;
+    padding: 20px;
+}
+body{
+    font-family: Georgia;
+    background-color: #FFFAFA;
+    margin: 0;
+}
+form{
+    margin: 80px;
+}
+table{
+    color: white;
+    text-align: center;
+    width: 80%;
+    border: 1px dotted white;
+}
+tr:hover{
+    background-color: #D3D3D3;
+    color: black;
+}
+.leftright{
+    display: flex;
+}
