@@ -1,0 +1,21 @@
+<head><style>*{font-family:consolas;}</style></head>
+<body><div id="cmd1"></div><div id="cmd2"></div><div id="cmd3"></div></body>
+<script>
+	const start=24418489; //id pierwszego rekordu
+	
+	
+	var number=12000*10; //12000*ilosc lat (zakladajac 1000 rekordow na miesiac)
+	var cmd1 = document.getElementById(`cmd1`);
+	var cmd2 = document.getElementById(`cmd2`);
+	var cmd3 = document.getElementById(`cmd3`);
+	cmd2.innerHTML += `Concurrent(`
+	cmd3.innerHTML += `ClearCollect(SQLAll`
+	for(var i=start, j=1;i<start+number;i+=2000, j++){
+		cmd1.innerHTML += `Collect(SQLCollection`+j+`,"");Clear(SQLCollection`+j+`);<br>`;
+		cmd2.innerHTML += `<br>Collect(SQLCollection`+j+`,Filter(ADV_dokumentyAnalizySprzedazy,id>=`+i+` && `+(i+2000)+`>id)),`;
+		cmd3.innerHTML += `,SQLCollection`+j
+	}
+	cmd2.innerHTML = cmd2.innerHTML.slice(0,-1)
+	cmd2.innerHTML += `);`
+	cmd3.innerHTML += `);`
+</script>
