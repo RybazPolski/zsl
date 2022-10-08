@@ -69,32 +69,34 @@ class List{
 
     T& operator[](int index){
         if(index < _count){
-            return *_pointers[index];
+            return **_pointers[index];
         }else{
             cout << "blad! Przekroczono zakres kolekcji" << endl;
         }
-    }
+    };
 
 };
 
-List<int> primeFactors(int n){
+List<int> primeFactors(int a){
     
-    List<int> lista = List<int>(64);
-    while(n<2){
-        cout << "Podaj liczbę większą lub równą 2!:\n> ";
+    int *n = new int(a);
+
+    List<int> lista = List<int>(32);
+    while(*n<2){
+        cout << "Podaj liczbe wieksza lub rowna 2!:\n> ";
     }
     while(true){
         int *i = new int(2);
-        while(*i<=sqrt(n)){
-            if(n%*i==0){
-                lista.Add(*i);
-                n/=*i;
+        while(*i<=sqrt(*n)){
+            if(*n%*i==0){
+                lista.Add(*(new int(*i)));
+                *n/=*i;
                 *i=2;
                 continue;
             }
-            *i++;
+            (*i)++;
         }
-        lista.Add(n);
+        lista.Add(*(new int(*n)));
         break;
     }
 
@@ -104,8 +106,11 @@ List<int> primeFactors(int n){
 }
 
 int main(){
-    primeFactors(24).ShowItems();   
+    int n = 0;
+    cout << "Podaj liczbe ktora chcesz rozlozyc na czynniki pierwsze:\n> ";
+    cin >> n;
+    List<int> factors = primeFactors(n);
+    factors.ShowItems();
 
-    system('pause');
     return 0;
 }
