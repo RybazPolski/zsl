@@ -79,8 +79,8 @@ int main(){
    liczba.show();
    cout << "Podziel: " << liczba.podziel(2) << endl;
 
-   Liczba<string> liczba2 = Liczba<string>("tekst");
-   liczba2.show();
-   cout << "Podziel: " << liczba2.podziel("dwa") << endl;
+   //Liczba<string> liczba2 = Liczba<string>("tekst");
+   //liczba2.show();
+   //cout << "Podziel: " << liczba2.podziel("dwa") << endl;
 
 }
