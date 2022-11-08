@@ -1,0 +1,27 @@
+*{
+    font-family: Garamond;
+}
+.banner{
+    background-color: SaddleBrown;
+    color: white;
+    text-align: center;
+    height: 50px;
+}
+.left{
+    background-color: Tan;
+    height: 500px;
+    width: 40%;
+}
+.right{
+    height: 250px;
+    width: 60%;
+}
+footer{
+    background-color: SaddleBrown;
+    color: white;
+}
+form{
+    background-color: SaddleBrown;
+    color: white;
+    padding: 10px 30px;
+}
