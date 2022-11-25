@@ -256,6 +256,21 @@ use function PHPSTORM_META\map;
             $day = date('D',strtotime($_GET['date']));
             echo $day=="Sat"||$day=="Sun"?"Tak":"Nie";
         };
-    ?>
+        echo "<hr>";
+        $str1 = "Test";
+        $str2 = "est";
+        if(str_ends_with($str1,$str2)) echo "true";
+
+        echo "<hr>";
+        $str = "Python jest lepszy niż PHP";
+        echo $str."<br>";
+        // echo strtr("Python jest lepszy niż PHP","PHP","Python");
+        $str = str_replace("Python","Py7h0n",$str);
+        echo $str."<br>";
+        $str = str_replace("PHP","Python",$str);
+        echo $str."<br>";
+        $str = str_replace("Py7h0n","PHP",$str);
+        echo $str."<br>";
+        ?>
 </body>
 </html>

@@ -80,7 +80,8 @@
                 $q2 = "INSERT INTO `wynik`(`bmi_id`,`data_pomiaru`, `wynik`) VALUES ($id,'".date("Y-m-d")."','$bmi')";
                 mysqli_query($conn,$q2);
                 // echo $q2;
-                echo "Twoja waga $weight; Twój wzrost $height<br>BMI wynosi: $bmi";
+                echo "Twoja waga $weight; Twój wzrost $height<br>BMI wynosi: $bmi<br>";
+                echo $bmi < 18.5 ? "za mało!" : ($bmi > 25 ? "za dużo!" : "OK!");
             }
             mysqli_close($conn);
 
