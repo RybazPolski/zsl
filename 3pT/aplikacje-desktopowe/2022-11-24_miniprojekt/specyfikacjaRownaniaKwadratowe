@@ -1,0 +1,12 @@
+Problem: Obliczanie miejsc zerowych funckji kwadratowej
+Dane wejściowe: współczynniki a, b, c
+Dane wyjściowe: Komunikat lub lista miejsc zerowych
+Dane pomocnicze:
+    klasa rownanieKwadratowe:
+        - pola a, b, c
+        - funkcja Rozwiaz() wskazujaca miejsca zerowe lub adekwatną informację o ilości rozwiązań
+            * dla a==0, b==0, c==0 - nieskończenie wiele rozwiązań
+            * dla a==0 - to nie jest funkcja kwadratowa
+            * dla /\ < 0 - brak rozwiązań
+            * dla /\ == 0 - zwróci jedno miejsce zerowe
+            * dla /\ > 0 - zwróci dwa miejsca zerowe
