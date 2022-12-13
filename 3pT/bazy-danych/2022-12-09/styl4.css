@@ -1,0 +1,36 @@
+/*
+Domyślne dla całej strony: krój czcionki Helvetica
+‒ Dla banera i stopki: kolor tła #AF4448, biały kolor czcionki, wyrównanie tekstu do środka, wysokość
+20 px
+‒ Dla bloku lewego i prawego: kolor tła #FFA4A2, wysokość 650 px, szerokość 50%
+‒ Dla selektora nagłówka czwartego stopnia: marginesy zewnętrzne 0 px
+‒ Dla przycisku wysyłającego dane z formularza: kolor tła #AF4448, biały kolor czcionki, marginesy
+wewnętrzne 5 px, marginesy zewnętrzne 10 px
+*/
+*{
+    font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+}
+.baner, footer{
+    background-color: #AF4448;
+    color: white;
+    text-align: center;
+    height: 20px;
+    clear: both;
+}
+.lewy, .prawy{
+    background-color: #FFA4A2;
+    height: 650px;
+    width: 50%;
+    float: left;
+}
+h4{
+    margin: 0px;
+}
+form button{
+    background-color: #AF4448;
+    color: white;
+    padding: 5px;
+    margin: 10px
+}
