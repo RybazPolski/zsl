@@ -8,3 +8,4 @@ while(True):
             break
     else:
         break
+# P.S działa dla plików nazwanych Wiosna.gif Lato.gif Jesien.gif Zima.gif 
