@@ -1,0 +1,25 @@
+-- kw 1
+SELECT klienci.imie,klienci.nazwisko,SUM(datediff(`data_wyjazdu`,`data_przyjazdu`)) AS `pobyt` FROM `noclegi` INNER JOIN `klienci` ON klienci.id_dowodu=noclegi.nr_dowodu GROUP BY `nr_dowodu`
+ORDER BY `pobyt` DESC LIMIT 1;
+
+-- kw 2
+SELECT klienci.imie,klienci.nazwisko FROM `noclegi`
+INNER JOIN `klienci` ON klienci.id_dowodu=noclegi.nr_dowodu
+INNER JOIN `pokoje` ON pokoje.nr_pokoju=noclegi.nr_pokoju
+GROUP BY `nr_dowodu` HAVING SUM(datediff(`data_wyjazdu`,`data_przyjazdu`)*pokoje.cena)>2000
+ORDER BY `imie` ASC;
+
+-- kw 3
+SELECT pokoje.nr_pokoju FROM pokoje WHERE pokoje.nr_pokoju NOT IN (
+	SELECT noclegi.nr_pokoju FROM `noclegi`
+	INNER JOIN `klienci` ON klienci.id_dowodu=noclegi.nr_dowodu
+	WHERE (klienci.miejscowosc = 'Opole' OR klienci.miejscowosc = 'Katowice') AND noclegi.data_przyjazdu >= date("2022-07-01") AND noclegi.data_wyjazdu <= date("2022-09-30") GROUP BY `nr_pokoju`
+) AND pokoje.standard = "N";
+
+
+-- kw 3 v2
+SELECT pokoje.nr_pokoju FROM pokoje WHERE pokoje.nr_pokoju NOT IN (
+	SELECT noclegi.nr_pokoju FROM `noclegi`
+	INNER JOIN `klienci` ON klienci.id_dowodu=noclegi.nr_dowodu
+	WHERE (klienci.miejscowosc = 'Opole' OR klienci.miejscowosc = 'Katowice') GROUP BY `nr_pokoju`
+) AND pokoje.standard = "N";
