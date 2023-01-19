@@ -13,17 +13,17 @@
     </div>
     <div class="upper u1">
         <h2>Przykład listy - hobby</h2>
-        <li>
-            <ul>muzyka</ul>
-            <ul>turystyka
-                <li>
-                    <ol>góry</ol>
-                    <ol>jeziora</ol>
-                    <ol>na rowerze</ol>
-                </li>
-            </ul>
-            <ul>książki</ul>
-        </li>
+        <ul>
+            <li>muzyka</li>
+            <li>turystyka
+                <ol>
+                    <li>góry</li>
+                    <li>jeziora</li>
+                    <li>na rowerze</li>
+                </ol>
+            </li>
+            <li>książki</li>
+        </ul>
     </div>
     <div class="upper u2">
         <h2>Przykład tabeli - rozkład dnia</h2>
@@ -36,22 +36,22 @@
         </table>
     </div>
     <div class="upper u3">
-        <img src="./tekst.jpg" alt="technologia web">
+        <img src="./napisy.png" alt="technologia web">
     </div>
     <div class="main">
         <p>Podaj rozmiar tekstu w procentach: <input type="number" id="fontsize">%</p>
         <p>
             <select id="style">
-                <option value="0">prosty</option>
-                <option value="1">cursive</option>
+                <option value="normal">prosty</option>
+                <option value="italic">kursywa</option>
             </select>
         </p>
-        <p>Jakim kolorem sformatować tekst? Wybierz przycisk<br>
-            <button id="b1"></button>
-            <button id="b2"></button>
-            <button id="b3"></button>
+        <p>Jakim kolorem sformatować tekst? Wybierz przycisk<br><br>
+            <button id="b1" onclick="changeColor('red')"></button>
+            <button id="b2" onclick="changeColor('green')"></button>
+            <button id="b3" onclick="changeColor('blue')"></button>
         </p>
-        <p>
+        <p id="changeMe">
             To jest przykład paragrafu, który może być dowolnie formatowany przez Java Script
         </p>
     </div>
@@ -59,5 +59,13 @@
         <p>Formatowaniem tekstu zajmował się: JavaScript</p>
         <a href="http://formatowanie.pl" target="_blank">Odwiedź także:</a>
     </footer>
+    <script>
+        changeColor = (color)=>{
+            el = document.getElementById('changeMe').style
+            el.color = color
+            el.fontSize = document.getElementById('fontsize').value+"%"
+            el.fontStyle = document.getElementById('style').value
+        }
+    </script>
 </body>
 </html>

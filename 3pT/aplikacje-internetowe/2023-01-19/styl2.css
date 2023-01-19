@@ -26,6 +26,7 @@
 .main{
     background-color: #F0EAE2;
     padding: 50px;
+    clear: both;
 }
 footer{
     background-color: #824555;
@@ -49,4 +50,7 @@ ul{
 }
 #b3{
     background-color: blue;
+}
+button{
+    height: 1.5em;
 }
