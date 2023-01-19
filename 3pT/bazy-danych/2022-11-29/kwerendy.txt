@@ -1,0 +1,27 @@
+-- kw5
+CREATE USER 'baza'@'localhost' IDENTIFIED BY 'zaq1@WSX';
+
+-- kw6
+GRANT SELECT, DELETE, UPDATE ON `rtg`.* TO 'baza'@'localhost';
+
+-- kw7
+INSERT INTO `pacjenci`(`PESEL`,`Imie`,`Nazwisko`) VALUES (12345678910, 'Baza', 'Danych');
+
+-- kw8
+ALTER TABLE `pacjenci` RENAME TO `pacjent`;
+
+-- kw9
+CREATE TABLE `test`(
+	`test` int unsigned PRIMARY KEY AUTO_INCREMENT,
+    `miasto` int(255) unsigned,
+    `kod_pocztowy` char(6)
+);
+
+-- kw11
+ALTER TABLE `test` CHANGE `miasto` `wiek` int(255);
+
+-- kw12
+UPDATE `pacjent` SET `Imie`='Fryderyk',`NFZ`='ZSL' WHERE `Imie` LIKE '%R%';
+
+-- kw13
+ALTER TABLE `pacjent` MODIFY `Plec` ENUM('k','m');

@@ -1,0 +1,33 @@
+-- relacje
+ALTER TABLE `obserwacje` ADD FOREIGN KEY (`ID_gatunku`) REFERENCES `gatunki`(`ID_gatunku`), ADD FOREIGN KEY (`ID_lokalizacji`) REFERENCES `lokalizacje`(`ID_lokalizacji`);
+
+-- kw1
+SELECT `gatunki`.`nazwa_zwyczajowa` FROM `obserwacje`
+INNER JOIN `gatunki` ON `gatunki`.`ID_gatunku` = `obserwacje`.`ID_gatunku`
+GROUP BY `obserwacje`.`ID_gatunku` ORDER BY COUNT(`obserwacje`.`ID_gatunku`) DESC LIMIT 3;
+
+-- kw2
+SELECT IF(SUBSTR(`poczatek`,6,1)=0,SUBSTR(`poczatek`,7,1),SUBSTR(`poczatek`,6,2)) AS `miesiac`, SUM(`obserwacje`.`liczebnosc`) AS `liczba_zaobserwowanych`
+FROM `obserwacje`
+INNER JOIN `gatunki` ON `gatunki`.`ID_gatunku`=`obserwacje`.`ID_gatunku`
+WHERE `gatunki`.`nazwa_zwyczajowa`="remiz"
+GROUP BY `miesiac`;
+
+-- kw3
+SELECT SUM(`liczebnosc`) AS `zaobserwowano`, `gatunki`.`nazwa_zwyczajowa` FROM `obserwacje`
+INNER JOIN `gatunki` ON `gatunki`.`ID_gatunku` = `obserwacje`.`ID_gatunku`
+WHERE `ID_lokalizacji` IN (SELECT `ID_lokalizacji` FROM `lokalizacje` WHERE `opis` LIKE "%miasto%")
+AND `obserwacje`.`ID_gatunku` IN (SELECT `ID_gatunku` FROM `gatunki` WHERE `nazwa_lacinska` LIKE "%Corvus%")
+GROUP BY `obserwacje`.`ID_gatunku`;
+
+-- kw4
+CREATE USER 'adam'@'localhost' IDENTIFIED BY "zaq1@WSX";
+
+-- kw5
+GRANT SELECT,UPDATE ON `baza`.`gatunki` TO 'adam'@'localhost';
+
+-- kw6
+INSERT INTO `lokalizacje`(`ID_lokalizacji`,`powiat`,`lokalizacja`,`opis`) VALUES (null,'Słupecki','Słupca','miasto');
+
+-- kw7
+UPDATE `obserwacje` SET `liczebnosc`=25, `zachowanie`='leci' WHERE `ID_gatunku`%3=0;
