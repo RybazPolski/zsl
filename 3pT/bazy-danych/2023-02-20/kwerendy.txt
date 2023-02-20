@@ -1,0 +1,36 @@
+-- a)
+CREATE DATABASE `Malarze`;
+
+-- b)
+CREATE TABLE `Farby` (
+	`id_farby` int PRIMARY KEY AUTO_INCREMENT,
+    `kolor` varchar(64),
+    `cena` double,
+    `pojemnosc` int unsigned
+);
+CREATE TABLE `Malowanie`(
+	`id_pomieszczenia` int,
+    `id_sciany` int,
+    `id_farby` int,
+    FOREIGN KEY (`id_farby`) REFERENCES `Farby`(`id_farby`),
+    `liczba puszek` tinyint unsigned,
+    PRIMARY KEY (`id_pomieszczenia`,`id_sciany`)
+);
+
+-- c)
+ALTER TABLE `Malowanie` RENAME TO `Malarz`;
+
+-- d)
+ALTER TABLE `Farby` ADD `rok_waznosci` date AFTER `kolor`;
+
+-- e)
+ALTER TABLE `Farby` MODIFY `rok_waznosci` year;
+
+-- f)
+ALTER TABLE `Farby` CHANGE `cena` `cena_produktu` double;
+
+-- g)
+INSERT INTO `Farby`(`kolor`,`cena_produktu`) VALUES ('Czerwony',12.50),('Niebieski',14.20),('Czarny',21.30);
+
+-- h)
+UPDATE `Farby` SET `kolor`='Zielony' WHERE `kolor`='Czarny' && `id_farby`%2=1;
