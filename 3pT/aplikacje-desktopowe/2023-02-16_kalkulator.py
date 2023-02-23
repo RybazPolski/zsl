@@ -1,6 +1,42 @@
 import tkinter as tk
 import random as rng
 
+def input_into_entry(symbol):
+    _input.insert(tk.END, symbol)
+
+def input_into_entry_sqrt(symbol):
+    _input.insert(0, symbol)
+
+def clear():
+    _input.delete(0, tk. END)
+
+def calculation():
+    text=_input.get()
+    result=0
+    if '+' in text:
+        splitted_text=text.split('+')
+        num1=float(splitted_text[0])
+        num2=float(splitted_text[1])
+        result=num1+num2
+    if '-' in text:
+        splitted_text=text.split('-')
+        num1=float(splitted_text[0])
+        num2=float(splitted_text[1])
+        result=num1-num2
+    if '*' in text:
+        splitted_text=text.split('*')
+        num1=float(splitted_text[0])
+        num2=float(splitted_text[1])
+        result=num1*num2
+    if '/' in text:
+        splitted_text=text.split('/')
+        num1=float(splitted_text[0])
+        num2=float(splitted_text[1])
+        result=num1/num2
+    clear ()
+    _input.insert(0, result)
+
+
 def rgb_to_hex(rgb):
     return '%02x%02x%02x' % rgb
 
@@ -25,7 +61,8 @@ for i in range(5):
             background=bgcolor
         )
         frame.grid(row=0,column=0, columnspan=4)
-        tk.Text(master=frame,height=3, width=40,background=screencolor).pack()
+        _input = tk.Entry(master=frame,width=17,background=screencolor,font=('Consolas 20'))
+        _input.pack()
         continue
     for j in range(4):
         frame = tk.Frame(
@@ -37,6 +74,10 @@ for i in range(5):
             background=bgcolor
         )
         frame.grid(row=i,column=j)
-        tk.Label(master=frame, text=fields[i][j], width=8, height=3, borderwidth=1,relief=tk.RAISED,background=btncolor,).pack()
+        butt = tk.Button(master=frame, text=fields[i][j], width=6, height=3, borderwidth=1,relief=tk.RAISED,background=btncolor,command=lambda fields=fields, i=i, j=j:input_into_entry(fields[i][j]))
+        butt.pack()
+        if fields[i][j]=='=':
+            butt.config(command=calculation)
+
 
 window.mainloop()

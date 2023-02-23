@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powtórka</title>
+</head>
+<body>
+    <h1>Zad 1,2,3</h1>
+    <p id="akapit">tekst</p>
+    <input type="num" id="size">
+    <button onclick="scale()">Klik</button>
+    <hr>
+    <h1>Zad 4</h1>
+    <div id="urTxt">Wpisałeś tekst: </div>
+    <input type="text" id="txt">
+    <button onclick="writeTxt()">Wpisz</button> <br>
+    <input type="radio" name="color" value="red"> Czerwone<br>
+    <input type="radio" name="color" value="green"> Zielone<br>
+    <input type="radio" name="color" value="blue"> Niebieskie<br>
+    <hr>
+    <h1>Zad 5</h1>
+    <input type="number" name="a"> <input type="number" name="b"> <button onclick="_range()">ciągnij bejbe</button><div id="range"></div>
+    <hr>
+    <h1>Zad 6</h1>
+    a)
+    <div>Dzisiaj jest: <span id="calendar"></span></div>
+    b)
+    <div>Teraz jest: <span id="time"></span></div>
+<script>
+        document.querySelector('#akapit').innerHTML += "Julian Rybarczyk"
+        document.querySelector('#akapit').addEventListener("mouseover", (e)=>{
+            e.target.style.color = "green"
+            e.target.style.fontFamily = "Hack"
+        })
+        document.querySelector('#akapit').addEventListener("mouseout", (e)=>{
+            e.target.style.color = "black"
+            e.target.style.fontFamily = "Noto Serif"
+        })
+        scale = ()=>{
+            document.querySelector('#akapit').style.fontSize = document.getElementById('size').value + 'px'
+        }
+        writeTxt = ()=>{
+            document.querySelector('#urTxt').innerHTML += document.querySelector('#txt').value
+            for(let el of document.querySelectorAll('input[name="color"]')){
+                if(el.checked){
+                    document.querySelector('#urTxt').style.backgroundColor = el.value
+                }
+            }
+        }
+        _range = ()=>{
+            let a = parseInt(document.querySelector('input[name="a"]').value)
+            let b = parseInt(document.querySelector('input[name="b"]').value)
+            if(a>b){
+                document.querySelector('#range').innerHTML = "malejący: "
+                for(;a>=b;a--){
+                    document.querySelector('#range').innerHTML += `${a}; `
+                }
+            }else{
+                document.querySelector('#range').innerHTML = "rosnący: "
+                for(;a<=b;a++){
+                    document.querySelector('#range').innerHTML += `${a}; `
+                }
+            }
+        }
+
+        setInterval(() => {
+            let now = new Date()
+            document.querySelector('#calendar').innerHTML = `${now.getDate()}.${("0"+(now.getMonth()+1)).slice(-2)}.${now.getFullYear()}`
+            document.querySelector('#time').innerHTML = `${("0"+now.getHours()).slice(-2)}:${("0"+now.getMinutes()).slice(-2)}:${("0"+now.getSeconds()).slice(-2)}`
+        }, 1000);
+
+    </script>
+</body>
+</html>
