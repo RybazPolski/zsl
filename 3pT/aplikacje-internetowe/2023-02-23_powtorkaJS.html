@@ -28,6 +28,10 @@
     <div>Dzisiaj jest: <span id="calendar"></span></div>
     b)
     <div>Teraz jest: <span id="time"></span></div>
+    <hr>
+    <h1>Zad 7</h1>
+    <input type="text" name="AddTxt"> <button onclick="AddText()">Dodaj</button>
+    <div id="AddTxt"></div>
 <script>
         document.querySelector('#akapit').innerHTML += "Julian Rybarczyk"
         document.querySelector('#akapit').addEventListener("mouseover", (e)=>{
@@ -52,16 +56,15 @@
         _range = ()=>{
             let a = parseInt(document.querySelector('input[name="a"]').value)
             let b = parseInt(document.querySelector('input[name="b"]').value)
+            document.querySelector('#range').innerHTML = (a>b?'malejący':'rosnący')+": "
             if(a>b){
-                document.querySelector('#range').innerHTML = "malejący: "
-                for(;a>=b;a--){
-                    document.querySelector('#range').innerHTML += `${a}; `
-                }
-            }else{
-                document.querySelector('#range').innerHTML = "rosnący: "
-                for(;a<=b;a++){
-                    document.querySelector('#range').innerHTML += `${a}; `
-                }
+                order = "malejący"
+                let temp = a
+                a = b
+                b = temp
+            }
+            for(;a<=b;a++){
+                document.querySelector('#range').innerHTML += `${a%3==0?'<b>':''}${a%2==0?`<span style='color:red'>`:''}${a}${a%2==0?`</span>`:''}${a%3==0?'</b>':''}; `
             }
         }
 
@@ -70,6 +73,16 @@
             document.querySelector('#calendar').innerHTML = `${now.getDate()}.${("0"+(now.getMonth()+1)).slice(-2)}.${now.getFullYear()}`
             document.querySelector('#time').innerHTML = `${("0"+now.getHours()).slice(-2)}:${("0"+now.getMinutes()).slice(-2)}:${("0"+now.getSeconds()).slice(-2)}`
         }, 1000);
+
+
+        var txts = new Array()
+        AddText = ()=>{
+            let newtxt = document.querySelector('input[name="AddTxt"]').value
+            newtxt = newtxt.charAt(0).toUpperCase() + newtxt.slice(1)
+            txts.push(newtxt)
+            txts.sort()
+            document.querySelector('#AddTxt').innerHTML = txts.join(', ')
+        }
 
     </script>
 </body>

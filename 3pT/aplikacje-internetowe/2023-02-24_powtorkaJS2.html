@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powtórka</title>
+    <style>
+        table, th, td{
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        td, th{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table >
+        <tr><th>Produkt</th><th>Jednostka</th><th>Dostępna ilość</th><th>Aktualizacja</th><th>Zamówienie</th></tr>
+        <tr>
+            <td>Skrętka U/UTP drut</td>
+            <td>metr</td>
+            <td class="ilosc">20</td>
+            <td>
+                <button onclick="aktualizuj(this)">Aktualizuj</button>
+            </td>
+            <td>
+                <button onclick="zamow(this)">Zamów</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Skrętka U/UTP linka</td>
+            <td>metr</td>
+            <td class="ilosc">2</td>
+            <td>
+                <button onclick="aktualizuj(this)">Aktualizuj</button>
+            </td>
+            <td>
+                <button onclick="zamow(this)">Zamów</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Wtyki 8C8C</td>
+            <td>sztuki</td>
+            <td class="ilosc">10</td>
+            <td>
+                <button onclick="aktualizuj(this)">Aktualizuj</button>
+            </td>
+            <td>
+                <button onclick="zamow(this)">Zamów</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Moduły Keystone</td>
+            <td>sztuki</td>
+            <td class="ilosc">30</td>
+            <td>
+                <button onclick="aktualizuj(this)">Aktualizuj</button>
+            </td>
+            <td>
+                <button onclick="zamow(this)">Zamów</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var id_zamowienia = 0
+        braki = ()=>{
+            for(let el of document.querySelectorAll('.ilosc')){
+                let ilosc = parseInt(el.innerHTML)
+                switch(true){
+                    case (ilosc==0):
+                        color = 'red'
+                        break;
+                    case (ilosc>=0 && ilosc<=5):
+                        color = 'yellow'
+                        break;
+                    default:
+                        color = 'Honeydew'
+                        break;
+                }
+                el.style.backgroundColor=color
+            }
+        }
+        aktualizuj = (e)=>{
+
+        }
+        zamow = (e)=>{
+
+        }
+        braki()
+    </script>
+</body>
+</html>
