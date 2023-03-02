@@ -19,7 +19,7 @@
     <table >
         <tr><th>Produkt</th><th>Jednostka</th><th>Dostępna ilość</th><th>Aktualizacja</th><th>Zamówienie</th></tr>
         <tr>
-            <td>Skrętka U/UTP drut</td>
+            <td class="nazwaProduktu">Skrętka U/UTP drut</td>
             <td>metr</td>
             <td class="ilosc">20</td>
             <td>
@@ -30,7 +30,7 @@
             </td>
         </tr>
         <tr>
-            <td>Skrętka U/UTP linka</td>
+            <td class="nazwaProduktu">Skrętka U/UTP linka</td>
             <td>metr</td>
             <td class="ilosc">2</td>
             <td>
@@ -41,7 +41,7 @@
             </td>
         </tr>
         <tr>
-            <td>Wtyki 8C8C</td>
+            <td class="nazwaProduktu">Wtyki 8C8C</td>
             <td>sztuki</td>
             <td class="ilosc">10</td>
             <td>
@@ -52,7 +52,7 @@
             </td>
         </tr>
         <tr>
-            <td>Moduły Keystone</td>
+            <td class="nazwaProduktu">Moduły Keystone</td>
             <td>sztuki</td>
             <td class="ilosc">30</td>
             <td>
@@ -83,10 +83,12 @@
             }
         }
         aktualizuj = (e)=>{
-
+            let newQuant = prompt("Podaj nową iloć");
+            e.parentElement.parentElement.querySelector(".ilosc").innerHTML = newQuant
+            braki()
         }
         zamow = (e)=>{
-
+            alert(`Zamówienie nr: ${++id_zamowienia} Produkt: ${e.parentElement.parentElement.querySelector(".nazwaProduktu").innerHTML}`)
         }
         braki()
     </script>

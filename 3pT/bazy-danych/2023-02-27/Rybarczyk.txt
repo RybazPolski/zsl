@@ -1,0 +1,21 @@
+CREATE DATABASE `roslinki`;
+
+SELECT `res`.`Imie`,`res`.`Nazwisko` FROM
+	(SELECT zamowienia.Id_klienta, osoby.Imie, osoby.Nazwisko, SUM(`Liczba_sadzonek`)*rosliny.Cena AS `price` FROM `zamowienia`
+	INNER JOIN `osoby` ON zamowienia.Id_klienta=osoby.Id_klienta
+	INNER JOIN `rosliny` ON zamowienia.Id_rosliny=rosliny.Id_rosliny
+	GROUP BY `Data`, zamowienia.`Id_klienta`,zamowienia.`Id_rosliny`) AS `res`
+GROUP BY `res`.`Id_klienta`
+ORDER BY SUM(`res`.`price`) DESC LIMIT 1;
+
+ALTER TABLE zamowienia ADD FOREIGN KEY (Id_klienta) REFERENCES osoby(Id_klienta), ADD FOREIGN KEY (Id_rosliny) REFERENCES rosliny(Id_rosliny);
+
+SELECT CONCAT(`Imie`," ",`Nazwisko`) AS `dane_osobowe` FROM `osoby` WHERE `Nazwisko` LIKE 'E%' || `Nazwisko` LIKE 'A%' ORDER BY `Nazwisko` DESC, `Imie` DESC;
+
+SELECT osoby.Miasto, COUNT(zamowienia.Liczba_sadzonek) FROM `zamowienia`
+INNER JOIN osoby ON osoby.Id_klienta=zamowienia.Id_klienta
+WHERE zamowienia.Id_rosliny IN ( SELECT Id_rosliny FROM rosliny WHERE Okres_kwitnienia="VII-VIII" )
+GROUP BY osoby.Miasto
+HAVING COUNT(zamowienia.Liczba_sadzonek)=5;
+
+SELECT * FROM `zamowienia` WHERE Id_rosliny IN (SELECT rosliny.Id_rosliny FROM `rosliny` WHERE Kolor_kwiatow="bialo-liliowe")  AND `Liczba_sadzonek`<=10;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantyczna strona czy coś</title>
+</head>
+<body style="margin: 0;">
+    <header style="color: #234792; padding: 20px;">
+        <nav style="float: right; margin-top: 15px;"> 
+            <a target="_blank" href="https://poznan.pl"><div style="display:inline-block; border: 2px solid blue; color: #234792; border-radius: 5%; padding: 15px;">Strona Miasta Poznań</div></a> 
+            <a target="_blank" href="https://zsl.poznan.pl"><div style="display:inline-block; border: 2px solid blue; color: #234792; border-radius: 5%; padding: 15px;">Strona ZSŁ</div></a>
+        </nav>
+        <h1>Słownik gwary Poznańskiej</h1>
+    </header>
+    <hr>
+    <main style="height: 600px; width: 66%; float: left; margin: 2%;">
+        <article>
+
+            <section style="padding-bottom: 15px;"><header>Słownik gwary <strong style="color:#234792">></strong> Nyga</header></section>
+
+            <section>
+                <figure><img src="./komar.jpg" alt="Komar" style="width: 30%; margin: 0;"></figure>
+                <figcaption><h2>Nyga [Komar]</h2>Najpopularniejszą na zmianę, której podlegał nasz słowik, była nyga, która przez wiele jeszcze lat opierała się zwycięsko ogólnonarodowemu komarowi. Ja nie mogę podnosić nogów, bo wczoraj żem garował nad Ruchałką i tak mi nygi pedały pokąsali, że aż bojle wyskoczyli. Nygi mi giry pożarły. Inform. Nie zaboczcie, matka, zamknóńć łokno, bo nóm nygi nawłażóm. Inform.</figcaption>
+            </section>
+            <section style="padding-top: 100px;">
+                <nav><a href="./lolNie.html">Powrót</a></nav>
+            </section>
+        </article>
+    </main>
+    <aside style="width: 30%; height: 60%; float: left;">
+        <iframe src="https://epoznan.pl/" frameborder="0" style="height: 600px; width: 100%;"></iframe>
+    </aside>
+    <footer style="background-color: #eee; clear: both; padding: 2% 5%;">
+        <time style="float: right;"></time>
+        <ul>
+            <li>Stronę wykonał: Julian Rybarczyk</li>
+            <li><a href="https://github.com/rybazpolski">GitHub wspaniałego twórcy strony</a></li>
+        </ul>
+    </footer>
+</body>
+
+<script>
+    setInterval(() => {
+            let now = new Date()
+            document.querySelector('time').innerHTML = `Obecny czas w Poznaniu: <strong>${("0"+now.getHours()).slice(-2)}:${("0"+now.getMinutes()).slice(-2)}:${("0"+now.getSeconds()).slice(-2)}</strong>`
+        }, 1000);
+</script>
+
+</html>
