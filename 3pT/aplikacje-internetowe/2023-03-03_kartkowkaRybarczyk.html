@@ -1,0 +1,67 @@
+<html>
+<head></head>
+
+<body>
+	<input type="number"> <button onclick="doSth()">Zatwierdź</button>
+	<div>Julian Rybarczyk</div>
+</body>
+
+<script>
+	doSth = ()=>{
+		document.querySelector("div").style.fontSize = document.querySelector("input").value + "px"
+	}
+</script>
+
+</html>
+
+<!-- ============================================== -->
+
+<html>
+<head></head>
+
+<body>
+	<input type="number" id="n1"> <input type="number" id="n2"> <button onclick="doSth()">Zatwierdź</button>
+	<div></div>
+</body>
+
+<script>
+	doSth = ()=>{
+		document.querySelector("div").innerHTML = ""
+		let n1 = document.querySelector("#n1").value
+		let n2 = document.querySelector("#n2").value
+		if(n1 < n2){
+			for(let i=n1; i<=n2; i++){
+				if(i%2){
+					document.querySelector("div").innerHTML += i+"; "
+				}
+			}
+		}else{
+			alert("Podałeś złe liczby")
+		}
+	}
+</script>
+
+</html>
+
+<!-- ============================================== -->
+
+
+<html>
+<head></head>
+
+<body>
+	<input type="number"> <button onclick="doSth()">Zatwierdź</button>
+	<div>Julian Rybarczyk <span></span></div>
+</body>
+
+<script>
+	doSth = ()=>{
+		document.querySelector("div").style.fontSize = document.querySelector("input").value + "px"
+	}
+	setInterval(()=>{
+		let now = Date();
+		document.querySelector("span").innerHTML = `${("0"+now.getHour()).slice(-2)}:${("0"+now.getMinutes()).slice(-2)}:${("0"+now.getSeconds()).slice(-2)}`	
+	},1000)
+</script>
+
+</html>
