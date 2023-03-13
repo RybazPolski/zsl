@@ -1,0 +1,21 @@
+SELECT `program`,`cena`,COUNT(zestawy.pakiet_id) AS `w_ilu_pakietach` FROM `programy`
+INNER JOIN `zestawy` ON `zestawy`.`program_id`=`programy`.`Id_programu`
+GROUP BY `Id_programu`
+HAVING `w_ilu_pakietach`>=2 AND Id_programu IN (SELECT `Id_programu` FROM programy WHERE `rodzaj`="edytor dokumentow tekstowych")
+
+SELECT DISTINCT `nazwa_pakietu` FROM `pakiety` WHERE `Id_pakietu` IN (
+    SELECT `pakiet_id` FROM `zestawy` WHERE `program_id` IN (
+        SELECT `Id_programu` FROM `programy` WHERE `rodzaj` LIKE "%zarzadzanie%"
+    )  
+)
+
+CREATE VIEW `zad3` AS (
+    SELECT pakiety.nazwa_pakietu, pakiety.firma, SUM(programy.cena) AS `wartosc` FROM `pakiety`
+    INNER JOIN `zestawy` ON `zestawy`.`pakiet_id`=`pakiety`.`Id_pakietu`
+    INNER JOIN `programy` ON `programy`.`Id_programu`=`zestawy`.`program_id`
+    GROUP BY `pakiety`.`Id_pakietu` ORDER BY `wartosc` DESC LIMIT 3 
+)
+
+CREATE USER 'najemca' IDENTIFIED BY 'xyz';
+
+GRANT CREATE, ALTER, SELECT ON firma.programy TO 'najemca';
