@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularze i querySelectory</title>
+</head>
+<body>
+
+    <form id="zad1">
+        <label for="kilometers">Ilość kilometrów:</label> <input type="number" name="kilometers" id="kilometers">
+        <input type="checkbox" name="gdansk" id="gdansk"> <label for="gdansk">Jestem z Gdańska</label>
+    </form> 
+    <input type="submit" onclick="calcShipment()" value="Oblicz koszt dowozu">
+    <div id="res1"></div>
+
+    <hr>
+
+    <form id="zad2">
+        <span>
+            <input type="number" onchange="zad2()"><input type="checkbox" onchange="zad2()"><br>
+            <label style="color: red; display: none;">Wprowadź liczbę całkowitą!</label><br><br>
+        </span>
+        <span>
+            <input type="number" onchange="zad2()"><input type="checkbox" onchange="zad2()"><br>
+            <label style="color: red; display: none;">Wprowadź liczbę całkowitą!</label><br><br>
+        </span>
+        <span>
+            <input type="number" onchange="zad2()"><input type="checkbox" onchange="zad2()"><br>
+            <label style="color: red; display: none;">Wprowadź liczbę całkowitą!</label><br><br>
+        </span>
+        <span>
+            <input type="number" onchange="zad2()"><input type="checkbox" onchange="zad2()"><br>
+            <label style="color: red; display: none;">Wprowadź liczbę całkowitą!</label><br><br>
+        </span>
+        <span>
+            <input type="number" onchange="zad2()"><input type="checkbox" onchange="zad2()"><br>
+            <label style="color: red; display: none;">Wprowadź liczbę całkowitą!</label><br><br>
+        </span>
+        <span>
+            <input type="number" onchange="zad2()"><input type="checkbox" onchange="zad2()"><br>
+            <label style="color: red; display: none;">Wprowadź liczbę całkowitą!</label><br><br>
+        </span>
+    </form>
+
+    <div>Suma: <span id="res2"></span></div>
+
+    <hr>
+
+    <select name="pasma" id="pasma" onchange="zad3()">
+        <option value="1">Pasmo 1</option>
+        <option value="2">Pasmo 2</option>
+    </select>
+    <div id="res3">
+        <img src="" alt=""><br>
+        <span></span>
+    </div>
+
+
+    <hr>
+
+    <input type="radio" name="zad4" value="200" onchange="zad4()"> 200 <br>
+    <input type="radio" name="zad4" value="300" onchange="zad4()"> 300 <br>
+    <input type="radio" name="zad4" value="500" onchange="zad4()"> 500 <br>
+    <div id="ponizej"></div>
+
+    <script>
+        calcShipment = ()=>{
+            if(document.querySelector("#zad1 #gdansk").checked){
+                document.querySelector('#res1').innerHTML = `Dowieziemy Twoją pizzę za darmo`
+            }else{
+                document.querySelector('#res1').innerHTML = `Dowóz będzie Cię kosztował ${document.querySelector("#zad1 #kilometers").value*2} zł`
+            }
+        }
+        
+        zad2 = ()=>{
+            let error = 0
+            let suma = 0
+            for(let el of document.querySelectorAll("#zad2 span")){
+                el.querySelector(`label`).style.display = "none"
+                if(el.querySelector(`input[type="checkbox"]`).checked){
+                    let v = el.querySelector(`input[type="number"]`).value
+                    if(Number.isInteger(parseFloat(v))){
+                        el.querySelector(`label`).style.display = "block"
+                        error = 1
+                    }else{
+                        suma +=parseInt(v)
+                    }
+                }
+            }
+            document.querySelector('#res2').innerHTML = suma
+        }
+
+        const pasma = [
+            {
+                name:"Pasmo 1",
+                image: "noImage1.jpg",
+                height:100
+            },
+            {
+                name:"Pasmo 2",
+                image: "noImage2.jpg",
+                height:150
+            }
+        ]
+
+        zad3 = ()=>{
+            let option = pasma[parseInt(document.querySelector('#pasma').value)-1]
+            let res = document.querySelector('#res3')
+            res.querySelector("img").alt = option.name
+            res.querySelector("img").src = option.image
+            res.querySelector("span").innerHTML = `Wysokość: ${option.height}`
+        }
+
+        zad4 = ()=>{
+            for(let el of document.querySelectorAll(`input[type="radio"]`)){
+                if(el.checked){
+                    document.querySelector(`#ponizej`).innerHTML = el.value
+                }
+            }
+        }
+    </script>
+
+    <!--
+        Zadanie4.
+        Wstaw trzy elementy typu radio, mają przypisane odpowiednio wartości 200, 300, 500. Wybranie, którejś z opcji, wyświetla jej wartość w div-ie poniżej.
+
+        Zadanie5.
+        Wstaw 3 suwaki odpowiedzialne za 3 składowe koloru, zmiana położenia ma zmieniać daną składową. Po przesunięciu suwaka ma zmienić się tło strony oraz ma być wyświetlana aktualnie zmieniana wartość. Wartości początkowe - 255 - kolor biały.
+    -->
+</body>
+</html>

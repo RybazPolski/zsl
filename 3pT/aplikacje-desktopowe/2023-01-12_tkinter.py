@@ -15,6 +15,7 @@ for relief_name, relief in border_effects.items():
     frame.pack(side=tk.LEFT)
     btn = tk.Button(master=frame,text=relief_name)
     btn.pack()
+    
 
 tk.Frame(master=window,height=100,width=100,bg="red").pack()
 tk.Frame(master=window,height=50,width=50,bg="yellow").pack()
