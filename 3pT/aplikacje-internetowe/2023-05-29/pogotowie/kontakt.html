@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pogotowie komputerowe</title>
+    <link rel="stylesheet" href="styl.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="master">
+        <header><img src="animacja.gif" alt=""></header>
+        <nav><a href="index.html">O nas</a><a href="kontakt.html">Kontakt</a></nav>
+        <main>
+            <div class="col col1"></div>
+            <div class="col col2">
+                <h3>Formularz kontaktowy</h3>
+                <form action="">
+                <table>
+                    <tr><td>Imię: </td><td><input type="text" id="name"></td></tr>
+                    <tr><td>Nazwisko: </td><td><input type="text" id="surname"></td></tr>
+                    <tr><td>E-mail: </td><td><input type="text" id="mail"></td></tr>
+                    <tr><td>Usługa: </td><td>
+                        <select id="service">
+                            <option value="Naprawa komputera">Naprawa komputera</option>
+                            <option value="Odzyskiwanie danych">Odzyskiwanie danych</option>
+                            <option value="Stwarzanie problemów z oprogamowaniem">Stwarzanie problemów z oprogamowaniem</option>
+                            <option value="Konfiguracja sieci LAN">Konfiguracja sieci LAN</option>
+                            <option value="Inne">Inne</option>
+                        </select>
+                    </td></tr>
+                    <tr><td></td><td><input type="checkbox" id="copy" checked> Wyślij kopię wiadomości</td></tr>
+                    <tr><td></td><td><input type="reset" value="Reseuj"><input type="button" value="Prześlij" onclick="submitForm()"></td></tr>
+                </table>
+                </form>
+                <p id="result"></p>
+            </div>
+            <div class="col col3"></div>
+        </main>
+        <footer><p>Autor strony: <strong>Julian Rybarczyk</strong></p></footer>
+    </div>
+
+    <script>
+        let submitForm = ()=>{
+            let name = document.querySelector("#name")?.value
+            let surname = document.querySelector("#surname")?.value
+            let mail = document.querySelector("#mail")?.value
+            let service = document.querySelector("#service")?.value
+            let copy = document.querySelector("#copy")?.checked
+            document.querySelector("#result").innerHTML = `${name} ${surname}<br>${mail.toLowerCase()}<br>Usługa: ${service}`
+        }
+    </script>
+
+</body>
+</html>

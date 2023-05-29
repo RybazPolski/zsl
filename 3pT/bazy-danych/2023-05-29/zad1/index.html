@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h3>Zapotrzebowanie na farbę</h3>
+        Powierzchnia malowania (m<sup>2</sup>):<input type="number" id="pow"><button onclick="policz()">Policz</button>
+        <div style="text-align: center;" id="res"></div>
+    </div>
+    <script>
+        let policz = ()=>{
+            let pow = document.querySelector("#pow")?.value
+            if(pow){
+                document.querySelector("#res").innerHTML = `Liczba potrzebnych puszek: ${Math.ceil(pow/4)}`
+            }
+        }
+    </script>
+</body>
+</html>
