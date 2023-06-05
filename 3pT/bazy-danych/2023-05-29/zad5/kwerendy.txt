@@ -1,0 +1,7 @@
+SELECT `dataZadania`,`wpis` FROM `zadania` WHERE `miesiac`="sierpien"; 
+
+SELECT zadania.miesiac, zadania.rok FROM `zadania` WHERE `dataZadania` = "2020-08-07";
+
+SELECT `miesiac`, COUNT(`wpis`)  FROM `zadania` WHERE `wpis` LIKE "Weterynarz%" GROUP BY `miesiac`;
+
+UPDATE `zadania` SET `wpis`='Wycieczka: Zalew Mietkowski' WHERE `dataZadania` = "2020-08-09"

@@ -1,0 +1,7 @@
+SELECT `id`,`dataWyjazdu`,`cel`,`cena` FROM `wycieczki` WHERE `dostepna`; 
+
+SELECT `nazwaPliku`,`podpis` FROM `zdjecia` ORDER BY `podpis` DESC
+
+SELECT wycieczki.cel, wycieczki.cena, zdjecia.podpis FROM `wycieczki` INNER JOIN zdjecia ON zdjecia.id=wycieczki.zdjecia_id WHERE cena > 1200; 
+
+ALTER TABLE wycieczki ADD COLUMN `liczbaDni` int unsigned AFTER dataWyjazdu;
